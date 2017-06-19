@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:padding="20dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="Reiseanlass"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/Reiseanlass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="Zeitraum"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="wrap_content"
+        android:paddingBottom="5dp"
+        android:orientation="horizontal">
+
+
+
+        <EditText
+            android:id="@+id/ZeitVon"
+            android:layout_width="122dp"
+            android:layout_height="wrap_content"
+            android:hint="Von"/>
+
+        <EditText
+            android:id="@+id/ZeitBis"
+            android:layout_width="122dp"
+            android:layout_height="wrap_content"
+            android:hint="Bis"/>
+
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="Nachname"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/Nachname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="Vorname"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/Vorname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="Straße, Hausnummer"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/Adresse"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="Ort"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/Ort"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="Postleitzahl"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/Postleitzahl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+</LinearLayout>
