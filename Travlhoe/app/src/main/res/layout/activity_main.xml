@@ -19,10 +19,11 @@
 
         <Button
             android:id="@+id/Transport"
-            android:text="Transport"
             android:layout_width="0dip"
             android:layout_height="match_parent"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:onClick="onButtonClicked"
+            android:text="Transport" />
     </LinearLayout>
 
     <LinearLayout

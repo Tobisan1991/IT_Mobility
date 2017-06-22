@@ -13,10 +13,11 @@
 
         <Button
             android:id="@+id/Auto"
-            android:text="Auto"
             android:layout_width="0dip"
             android:layout_height="match_parent"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:onClick="onButtonClicked"
+            android:text="Auto" />
 
         <Button
             android:id="@+id/Flugzeug"
