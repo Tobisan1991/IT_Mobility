@@ -53,4 +53,6 @@ public class activity_Allgemein extends AppCompatActivity {
         bottomNavigationView.setSelectedItemId(R.id.menu_allgemein);
 
     }
+
+
 }
