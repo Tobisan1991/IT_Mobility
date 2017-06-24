@@ -2,7 +2,7 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:design="http://schemas.android.com/apk/res-auto"
-    android:padding="20dp"
+    android:padding="10dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
@@ -97,12 +97,27 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <android.support.design.widget.BottomNavigationView
-        android:id="@+id/bottomNavigationView"
+    
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        design:menu="@menu/navigation" />
+        android:layout_gravity="bottom">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:layout_gravity="top"
+            android:background="@drawable/shadow"/>
+
+        <android.support.design.widget.BottomNavigationView
+            android:id="@+id/bottomNavigationView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            design:menu="@menu/navigation" />
+
+    </FrameLayout>
+    
+
 
 
 </LinearLayout>

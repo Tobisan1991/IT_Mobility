@@ -12,12 +12,12 @@
         android:title="@string/title_transport" />
 
     <item
-        android:id="@+id/navigation_unterkunft"
+        android:id="@+id/menu_unterkunft"
         android:icon="@drawable/ic_home_black_24dp"
         android:title="@string/title_unterkunft" />
 
     <item
-        android:id="@+id/navigation_rechnung"
+        android:id="@+id/menu_rechnung"
         android:icon="@drawable/ic_credit_card_black_24dp"
         android:title="@string/title_rechnung" />
 
