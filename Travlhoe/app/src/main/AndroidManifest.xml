@@ -18,8 +18,24 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity_auto" />
-        <activity android:name=".activity_transport"></activity>
+        <activity
+            android:name=".activity_Auto"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".activity_Transport"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".activity_Allgemein"
+            android:launchMode="singleTop">
+        </activity>
+        <activity
+            android:name=".activity_Rechnung"
+            android:launchMode="singleTop">
+        </activity>
+        <activity
+            android:name=".activity_Unterkunft"
+            android:launchMode="singleTop">
+        </activity>
     </application>
 
 </manifest>

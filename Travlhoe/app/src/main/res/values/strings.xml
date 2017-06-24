@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">TakeOff</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_allgemein">Allgemein</string>
+    <string name="title_transport">Transport</string>
+    <string name="title_unterkunft">Unterkunft</string>
+    <string name="title_rechnung">Rechnung</string>
+
 </resources>
