@@ -31,16 +31,16 @@
 
 
         <EditText
-            android:id="@+id/ZeitVon"
+            android:id="@+id/eTxt_DatumVon"
             android:layout_width="122dp"
             android:layout_height="wrap_content"
-            android:hint="Von"/>
+            android:hint="@string/from_date"/>
 
         <EditText
-            android:id="@+id/ZeitBis"
+            android:id="@+id/eTxt_DatumBis"
             android:layout_width="122dp"
             android:layout_height="wrap_content"
-            android:hint="Bis"/>
+            android:hint="@string/to_date"/>
 
     </LinearLayout>
 
