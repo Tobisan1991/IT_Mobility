@@ -15,9 +15,16 @@
     <Button
         android:id="@+id/btnCamera"
         android:layout_width="match_parent"
-        android:layout_height="89dp"
+        android:layout_height="58dp"
         android:onClick="onButtonClicked"
         android:text="Open Camera" />
+
+    <Button
+        android:id="@+id/goToGPS"
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        android:onClick="onButtonClicked"
+        android:text="Find your Location" />
 
 
 </LinearLayout>

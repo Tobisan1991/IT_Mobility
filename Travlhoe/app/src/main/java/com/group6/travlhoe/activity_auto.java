@@ -26,6 +26,10 @@ public class activity_auto extends AppCompatActivity {
             Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
             startActivityForResult(intent, 0);
         }
+        if(v.getId()==R.id.goToGPS) {
+            Intent intent2 = new Intent(activity_auto.this, function_gps.class );
+            startActivity(intent2);
+        }
     }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
