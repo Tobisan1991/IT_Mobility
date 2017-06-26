@@ -11,7 +11,7 @@ import android.view.MenuItem;
  * Created by STzavelas on 24.06.17.
  */
 
-public class activity_Rechnung extends AppCompatActivity {
+public class activity_rechnung extends AppCompatActivity {
 
     private BottomNavigationView bottomNavigationView;
 
@@ -25,13 +25,13 @@ public class activity_Rechnung extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item){
                 if (item.getItemId()==R.id.menu_allgemein){
-                    startActivity(new Intent(activity_Rechnung.this, activity_Allgemein.class));
+                    startActivity(new Intent(activity_rechnung.this, activity_allgemein.class));
                 } else if(item.getItemId()==R.id.menu_transport){
-                    startActivity(new Intent(activity_Rechnung.this, activity_Transport.class));
+                    startActivity(new Intent(activity_rechnung.this, activity_transport.class));
                 } else if(item.getItemId()==R.id.menu_rechnung){
-                    startActivity(new Intent(activity_Rechnung.this, activity_Rechnung.class));
+                    startActivity(new Intent(activity_rechnung.this, activity_rechnung.class));
                 } else if(item.getItemId()==R.id.menu_unterkunft){
-                    startActivity(new Intent(activity_Rechnung.this, activity_Unterkunft.class));
+                    startActivity(new Intent(activity_rechnung.this, activity_unterkunft.class));
                 }
                 return true;
             }

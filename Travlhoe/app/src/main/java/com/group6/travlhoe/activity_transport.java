@@ -9,7 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
-public class activity_Transport extends AppCompatActivity implements View.OnClickListener {
+public class activity_transport extends AppCompatActivity implements View.OnClickListener {
 
     Button btnAuto;
     private BottomNavigationView bottomNavigationView;
@@ -29,13 +29,13 @@ public class activity_Transport extends AppCompatActivity implements View.OnClic
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item){
                 if (item.getItemId()==R.id.menu_allgemein){
-                    startActivity(new Intent(activity_Transport.this, activity_Allgemein.class));
+                    startActivity(new Intent(activity_transport.this, activity_allgemein.class));
                 } else if(item.getItemId()==R.id.menu_transport){
-                    startActivity(new Intent(activity_Transport.this, activity_Transport.class));
+                    startActivity(new Intent(activity_transport.this, activity_transport.class));
                 } else if(item.getItemId()==R.id.menu_rechnung){
-                    startActivity(new Intent(activity_Transport.this, activity_Rechnung.class));
+                    startActivity(new Intent(activity_transport.this, activity_rechnung.class));
                 } else if(item.getItemId()==R.id.menu_unterkunft){
-                    startActivity(new Intent(activity_Transport.this, activity_Unterkunft.class));
+                    startActivity(new Intent(activity_transport.this, activity_unterkunft.class));
                 }
                 return true;
             }
@@ -47,7 +47,7 @@ public class activity_Transport extends AppCompatActivity implements View.OnClic
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.Auto) {
-            startActivity(new Intent(activity_Transport.this, activity_Auto.class));
+            startActivity(new Intent(activity_transport.this, activity_auto.class));
         }
     }
 

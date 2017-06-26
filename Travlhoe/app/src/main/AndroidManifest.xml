@@ -19,21 +19,21 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity_Auto"
+            android:name=".activity_auto"
             android:launchMode="singleTop" />
         <activity
-            android:name=".activity_Transport"
+            android:name=".activity_transport"
             android:launchMode="singleTop" />
         <activity
-            android:name=".activity_Allgemein"
+            android:name=".activity_allgemein"
             android:launchMode="singleTop">
         </activity>
         <activity
-            android:name=".activity_Rechnung"
+            android:name=".activity_rechnung"
             android:launchMode="singleTop">
         </activity>
         <activity
-            android:name=".activity_Unterkunft"
+            android:name=".activity_unterkunft"
             android:launchMode="singleTop">
         </activity>
     </application>

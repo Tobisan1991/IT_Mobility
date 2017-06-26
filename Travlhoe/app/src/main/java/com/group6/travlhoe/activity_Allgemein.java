@@ -5,24 +5,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.ActionBar;
 import android.text.InputType;
 import android.view.MenuItem;
 import android.support.v7.app.AppCompatActivity;
-import android.support.annotation.ColorRes;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.Locale;
 
 
@@ -30,7 +21,7 @@ import java.util.Locale;
  * Created by STzavelas on 24.06.17.
  */
 
-public class activity_Allgemein extends AppCompatActivity implements View.OnClickListener{
+public class activity_allgemein extends AppCompatActivity implements View.OnClickListener{
 
 
     private BottomNavigationView bottomNavigationView;
@@ -54,13 +45,13 @@ public class activity_Allgemein extends AppCompatActivity implements View.OnClic
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item){
                 if (item.getItemId()==R.id.menu_allgemein){
-                    startActivity(new Intent(activity_Allgemein.this, activity_Allgemein.class));
+                    startActivity(new Intent(activity_allgemein.this, activity_allgemein.class));
                 } else if(item.getItemId()==R.id.menu_transport){
-                    startActivity(new Intent(activity_Allgemein.this, activity_Transport.class));
+                    startActivity(new Intent(activity_allgemein.this, activity_transport.class));
                 } else if(item.getItemId()==R.id.menu_rechnung){
-                    startActivity(new Intent(activity_Allgemein.this, activity_Rechnung.class));
+                    startActivity(new Intent(activity_allgemein.this, activity_rechnung.class));
                 } else if(item.getItemId()==R.id.menu_unterkunft){
-                    startActivity(new Intent(activity_Allgemein.this, activity_Unterkunft.class));
+                    startActivity(new Intent(activity_allgemein.this, activity_unterkunft.class));
                 }
                 return true;
             }

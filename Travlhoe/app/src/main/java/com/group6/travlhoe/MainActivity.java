@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void onButtonClicked(View v){
         if(v.getId()==R.id.Transport){
-            Intent i = new Intent(MainActivity.this, activity_Transport.class);
+            Intent i = new Intent(MainActivity.this, activity_transport.class);
             startActivity(i);
         }
     }
@@ -67,13 +67,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.Allgemein) {
-            startActivity(new Intent(MainActivity.this, activity_Allgemein.class));
+            startActivity(new Intent(MainActivity.this, activity_allgemein.class));
         } else if (v.getId() == R.id.Transport) {
-            startActivity(new Intent(MainActivity.this, activity_Transport.class));
+            startActivity(new Intent(MainActivity.this, activity_transport.class));
         } else if (v.getId() == R.id.Unterkunft) {
-            startActivity(new Intent(MainActivity.this, activity_Unterkunft.class));
+            startActivity(new Intent(MainActivity.this, activity_unterkunft.class));
         } else if (v.getId() == R.id.Rechnung) {
-            startActivity(new Intent(MainActivity.this, activity_Rechnung.class));
+            startActivity(new Intent(MainActivity.this, activity_rechnung.class));
         }
     }
 }

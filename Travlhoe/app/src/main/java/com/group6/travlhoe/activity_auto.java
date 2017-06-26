@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
-public class activity_Auto extends AppCompatActivity {
+public class activity_auto extends AppCompatActivity {
     ImageView imageView;
 
     @Override
