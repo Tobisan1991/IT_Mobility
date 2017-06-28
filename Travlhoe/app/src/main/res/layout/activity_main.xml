@@ -24,7 +24,7 @@
 
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="T  a  k  e  O  f  f"
+                android:text="T   a   k   e  O   f   f"
                 android:textAlignment="center"
                 android:textStyle="bold"
                 android:textColor="@android:color/background_light"
@@ -50,7 +50,7 @@
                 android:layout_height="150dp"
                 android:layout_weight="1"
                 android:alpha="0.8"
-                android:background="@mipmap/allgemein_ic"
+                android:background="@mipmap/ic_allg"
                 android:onClick="onClick"
                 android:visibility="visible" />
 
@@ -60,7 +60,7 @@
                 android:layout_height="150dp"
                 android:layout_weight="1"
                 android:alpha="1"
-                android:background="@mipmap/transport_ic"
+                android:background="@mipmap/ic_trans"
                 android:onClick="onClick" />
         </LinearLayout>
 
@@ -78,7 +78,7 @@
                 android:layout_weight="1"
                 android:layout_marginLeft="6dp"
                 android:layout_marginStart="6dp"
-                android:background="@mipmap/unterkunft_ic"
+                android:background="@mipmap/ic_unt"
                 android:onClick="onClick" />
 
 
@@ -88,7 +88,7 @@
                 android:layout_height="150dp"
                 android:layout_weight="1"
                 android:alpha="0.8"
-                android:background="@mipmap/rechnung_ic"
+                android:background="@mipmap/ic_rech"
                 android:onClick="onClick" />
 
         </LinearLayout>
