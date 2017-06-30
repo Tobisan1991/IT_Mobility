@@ -2,8 +2,13 @@ package com.group6.travlhoe;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
+import android.os.Build;
+import android.os.Environment;
+import android.os.StrictMode;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,12 +18,17 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
+import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class activity_auto extends AppCompatActivity {
 
     ImageView imageView;
     private BottomNavigationView bottomNavigationView;
 
 
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR2)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +36,10 @@ public class activity_auto extends AppCompatActivity {
 
         ImageButton btnCamera= (ImageButton)findViewById(R.id.btnCamera);
         imageView=(ImageView)findViewById(R.id.imageView);
+
+        StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
+        StrictMode.setVmPolicy(builder.build());
+        builder.detectFileUriExposure();
 
         bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavigationView);
 
@@ -51,6 +65,15 @@ public class activity_auto extends AppCompatActivity {
     public void onButtonClicked(View v){
         if(v.getId()==R.id.btnCamera) {
             Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+
+            File pictureDirectory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+            String pictureName= getPictureName();
+            File imageFile=  new File(pictureDirectory,pictureName);
+
+            //URI weil putExtra sonst nicht mit File elementen klar kommt!
+            Uri pictureUri = Uri.fromFile(imageFile);
+            intent.putExtra(MediaStore.EXTRA_OUTPUT, pictureUri);
+
             startActivityForResult(intent, 0);
         }
         if(v.getId()==R.id.goToGPS) {
@@ -58,12 +81,19 @@ public class activity_auto extends AppCompatActivity {
             startActivity(intent2);
         }
     }
+    private String getPictureName() {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd_HHmmss");
+        String timestamp = sdf.format(new Date());
+        return "Rechnung"+ timestamp + ".jpg";
+    }
+
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        Bitmap bitmap = (Bitmap)data.getExtras().get("data");
+       // Bitmap bitmap = (Bitmap)data.getExtras().get("data");
 
-        imageView.setImageBitmap(bitmap);
+        //imageView.setImageBitmap(bitmap);
     }
 }
