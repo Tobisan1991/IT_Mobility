@@ -21,22 +21,42 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
-            android:name=".activity_auto"
-            android:launchMode="singleTop" />
+            android:name=".activity_flugzeug"
+            android:label="@string/title_flugzeug" />
+        <activity
+            android:name=".activity_taxi"
+            android:label="@string/title_taxi" />
+        <activity
+            android:name=".activity_zug"
+            android:label="@string/title_zug" />
+
         <activity
             android:name=".activity_transport"
-            android:launchMode="singleTop" />
+            android:launchMode="singleTop"
+            android:label="@string/title_transport"/>
         <activity
             android:name=".activity_allgemein"
-            android:launchMode="singleTop"></activity>
+            android:launchMode="singleTop"
+            android:label="@string/title_allgemein"/>
         <activity
             android:name=".activity_rechnung"
-            android:launchMode="singleTop"></activity>
+            android:launchMode="singleTop"
+            android:label="@string/title_rechnung"/>
         <activity
             android:name=".activity_unterkunft"
-            android:launchMode="singleTop"></activity>
-        <activity android:name=".function_gps"></activity>
+            android:launchMode="singleTop"
+            android:label="@string/title_unterkunft"/>
+        <activity
+            android:name=".activity_auto"
+            android:label="@string/title_auto" >
+        </activity>
+        <activity
+            android:name=".function_gps">
+        </activity>
     </application>
 
 </manifest>
+
+

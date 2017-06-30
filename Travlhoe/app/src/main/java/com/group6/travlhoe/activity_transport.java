@@ -1,19 +1,25 @@
 package com.group6.travlhoe;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
-public class activity_transport extends AppCompatActivity implements View.OnClickListener {
+/**
+ * Created by STzavelas on 29.06.17.
+ */
 
-    Button btnAuto;
+public class activity_transport extends Activity implements View.OnClickListener{
+
+    Button btnAuto, btnFlugzeug, btnTaxi, btnZug;
+    private static final String TAG = "Transport";
     private BottomNavigationView bottomNavigationView;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,14 +27,24 @@ public class activity_transport extends AppCompatActivity implements View.OnClic
         setContentView(R.layout.activity_transport);
 
         btnAuto = (Button) findViewById(R.id.Auto);
+        btnFlugzeug = (Button) findViewById(R.id.Flugzeug);
+        btnTaxi = (Button) findViewById(R.id.Taxi);
+        btnZug= (Button) findViewById(R.id.Bahn);
+
+
         btnAuto.setOnClickListener(this);
+        btnFlugzeug.setOnClickListener(this);
+        btnTaxi.setOnClickListener(this);
+        btnZug.setOnClickListener(this);
 
         bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavigationView);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener(){
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item){
-                if (item.getItemId()==R.id.menu_allgemein){
+                if (item.getItemId()==R.id.menu_start){
+                    startActivity(new Intent(activity_transport.this, MainActivity.class));
+                } else if(item.getItemId()==R.id.menu_allgemein){
                     startActivity(new Intent(activity_transport.this, activity_allgemein.class));
                 } else if(item.getItemId()==R.id.menu_transport){
                     startActivity(new Intent(activity_transport.this, activity_transport.class));
@@ -45,21 +61,28 @@ public class activity_transport extends AppCompatActivity implements View.OnClic
     }
 
     @Override
-    public void onClick(View v) {
-        if (v.getId() == R.id.Auto) {
-            startActivity(new Intent(activity_transport.this, activity_auto.class));
+    public void onClick(View view) {
+        switch (view.getId())
+        {
+            case R.id.Auto:
+                Intent i = new Intent(activity_transport.this, activity_auto.class);
+                startActivity(i);
+                //Log.e(TAG, view.toString());
+                break;
+            case R.id.Flugzeug:
+                Intent i1 = new Intent(activity_transport.this, activity_flugzeug.class);
+                startActivity(i1);
+                break;
+            case R.id.Bahn:
+                Intent i2 = new Intent(activity_transport.this, activity_zug.class);
+                startActivity(i2);
+                break;
+            case R.id.Taxi:
+                Intent i3 = new Intent(activity_transport.this, activity_taxi.class);
+                startActivity(i3);
+                break;
+
         }
-    }
-
-    /*
-    public void onButtonClicked(View v){
-        if(v.getId()==R.id.Auto){
-        Intent i = new Intent(activity_Transport.this, activity_Auto.class);
-        startActivity(i);
-        }
 
     }
-    */
-
-
 }

@@ -6,18 +6,22 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 
 /**
- * Created by STzavelas on 24.06.17.
+ * Created by STzavelas on 29.06.17.
  */
 
-public class activity_unterkunft extends AppCompatActivity {
+public class activity_flugzeug extends AppCompatActivity{
 
     private BottomNavigationView bottomNavigationView;
 
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_unterkunft);
+        setContentView(R.layout.activity_flugzeug);
+
 
         bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavigationView);
 
@@ -25,20 +29,20 @@ public class activity_unterkunft extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item){
                 if (item.getItemId()==R.id.menu_start){
-                    startActivity(new Intent(activity_unterkunft.this, MainActivity.class));
+                    startActivity(new Intent(activity_flugzeug.this, MainActivity.class));
                 } else if(item.getItemId()==R.id.menu_allgemein){
-                    startActivity(new Intent(activity_unterkunft.this, activity_allgemein.class));
-                } else if(item.getItemId()==R.id.menu_transport){
-                    startActivity(new Intent(activity_unterkunft.this, activity_transport.class));
+                    startActivity(new Intent(activity_flugzeug.this, activity_allgemein.class));
                 } else if(item.getItemId()==R.id.menu_rechnung){
-                    startActivity(new Intent(activity_unterkunft.this, activity_rechnung.class));
+                    startActivity(new Intent(activity_flugzeug.this, activity_rechnung.class));
                 } else if(item.getItemId()==R.id.menu_unterkunft){
-                    startActivity(new Intent(activity_unterkunft.this, activity_unterkunft.class));
+                    startActivity(new Intent(activity_flugzeug.this, activity_unterkunft.class));
                 }
                 return true;
             }
         });
 
-        bottomNavigationView.setSelectedItemId(R.id.menu_unterkunft);
+        bottomNavigationView.setSelectedItemId(R.id.menu_transport);
     }
+
+
 }

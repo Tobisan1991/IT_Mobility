@@ -9,8 +9,10 @@ import android.text.InputType;
 import android.view.MenuItem;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -23,11 +25,17 @@ import java.util.Locale;
 
 public class activity_allgemein extends AppCompatActivity implements View.OnClickListener{
 
+    DatabaseHelper myDb;
 
     private BottomNavigationView bottomNavigationView;
 
+    EditText CreateProject, eTxt_DatumVon, eTxt_DatumBis, Nachname, Vorname, Kostenstelle;
+    Button btn_save;
+
     private EditText DatumVon;
     private EditText DatumBis;
+
+
 
     private DatePickerDialog fromDatePickerDialog;
     private DatePickerDialog toDatePickerDialog;
@@ -38,13 +46,26 @@ public class activity_allgemein extends AppCompatActivity implements View.OnClic
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_allgemein);
+        myDb = new DatabaseHelper(this);
+
+        CreateProject = (EditText) findViewById(R.id.CreateProject);
+        eTxt_DatumVon = (EditText) findViewById(R.id.eTxt_DatumVon);
+        eTxt_DatumBis = (EditText) findViewById(R.id.eTxt_DatumBis);
+        Nachname = (EditText) findViewById(R.id.Nachname);
+        Vorname = (EditText) findViewById(R.id.Vorname);
+        Kostenstelle= (EditText) findViewById(R.id.Kostenstelle);
+        btn_save=(Button) findViewById(R.id.btn_save);
+        SaveData();
+
 
         bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavigationView);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener(){
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item){
-                if (item.getItemId()==R.id.menu_allgemein){
+                if (item.getItemId()==R.id.menu_start){
+                    startActivity(new Intent(activity_allgemein.this, MainActivity.class));
+                } else if(item.getItemId()==R.id.menu_allgemein){
                     startActivity(new Intent(activity_allgemein.this, activity_allgemein.class));
                 } else if(item.getItemId()==R.id.menu_transport){
                     startActivity(new Intent(activity_allgemein.this, activity_transport.class));
@@ -66,6 +87,28 @@ public class activity_allgemein extends AppCompatActivity implements View.OnClic
 
         setDateTimeField();
 
+    }
+
+    public void SaveData(){
+        btn_save.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        boolean isInserted = myDb.insertData(
+                                CreateProject.getText().toString(),
+                                eTxt_DatumVon.getText().toString(),
+                                eTxt_DatumBis.getText().toString(),
+                                Nachname.getText().toString(),
+                                Vorname.getText().toString(),
+                                Kostenstelle.getText().toString());
+                        if(isInserted=true)
+                            Toast.makeText(activity_allgemein.this, "Daten gespeichert", Toast.LENGTH_LONG).show();
+                        else
+                            Toast.makeText(activity_allgemein.this, "Daten nicht gespeichert", Toast.LENGTH_LONG).show();
+
+                    }
+                }
+        );
     }
 
     private void findViewsById() {

@@ -4,7 +4,13 @@
     <string name="title_transport">Transport</string>
     <string name="title_unterkunft">Unterkunft</string>
     <string name="title_rechnung">Rechnung</string>
+    <string name="title_home">Start</string>
+    <string name="title_auto">Auto</string>
+    <string name="title_flugzeug">Flugzeug</string>
+    <string name="title_taxi">Taxi</string>
+    <string name="title_zug">Zug</string>
     <string name="from_date">Von</string>
     <string name="to_date">Bis</string>
+    <string name="speichern_button">Speichern</string>
 
 </resources>

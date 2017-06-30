@@ -1,104 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:design="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="10dp"
-    android:background="@drawable/hintergrund">
-
     <LinearLayout
-
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:design="http://schemas.android.com/apk/res-auto"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="0dip"
-        android:orientation="horizontal"
-        android:layout_weight="0.3" >
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:background="@drawable/hintergrund">
 
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dip"
-        android:layout_weight="1"
-        android:orientation="horizontal">
+        <LinearLayout
 
-        <Button
-            android:id="@+id/Auto"
-            android:layout_width="0dip"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:alpha="0.75"
-            android:background="@mipmap/buttom_col"
-            android:text="Auto"
-            android:textStyle="bold"/>
-
-        <Button
-            android:id="@+id/Flugzeug"
-            android:alpha="0.9"
-            android:layout_width="0dip"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@mipmap/buttom_col"
-            android:text="Flugzeug"
-            android:textStyle="bold" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dip"
-        android:orientation="horizontal"
-        android:layout_weight="1" >
-
-        <Button
-            android:id="@+id/Taxi"
-            android:alpha="0.9"
-            android:layout_width="0dip"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@mipmap/buttom_col"
-            android:text="Taxi"
-            android:textStyle="bold"/>
-
-        <Button
-            android:id="@+id/Bahn"
-            android:alpha="0.75"
-            android:text="Bahn"
-            android:textStyle="bold"
-            android:layout_width="0dip"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@mipmap/buttom_col" />
-    </LinearLayout>
-
-    <LinearLayout
-
-        android:layout_width="match_parent"
-        android:layout_height="0dip"
-        android:orientation="horizontal"
-        android:layout_weight="0.3" >
-
-    </LinearLayout>
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom">
-
-        <View
             android:layout_width="match_parent"
-            android:layout_height="4dp"
-            android:layout_gravity="top"
-            android:background="@drawable/shadow" />
+            android:layout_height="0dip"
+            android:orientation="horizontal"
+            android:layout_weight="0.3" >
 
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1"
+            android:orientation="horizontal">
 
-        <android.support.design.widget.BottomNavigationView
-            android:id="@+id/bottomNavigationView"
+            <Button
+                android:id="@+id/Auto"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:alpha="0.75"
+                android:background="@mipmap/buttom_col"
+                android:text="Auto"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/Flugzeug"
+                android:alpha="0.9"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@mipmap/buttom_col"
+                android:text="Flugzeug"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:orientation="horizontal"
+            android:layout_weight="1" >
+
+            <Button
+                android:id="@+id/Taxi"
+                android:alpha="0.9"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@mipmap/buttom_col"
+                android:text="Taxi"
+                android:textStyle="bold"/>
+
+            <Button
+                android:id="@+id/Bahn"
+                android:alpha="0.75"
+                android:text="Bahn"
+                android:textStyle="bold"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@mipmap/buttom_col" />
+        </LinearLayout>
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:orientation="horizontal"
+            android:layout_weight="0.3" >
+
+        </LinearLayout>
+
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            design:menu="@menu/navigation" />
+            android:layout_gravity="bottom">
 
-    </FrameLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:layout_gravity="top"
+                android:background="@drawable/shadow" />
+
+
+            <android.support.design.widget.BottomNavigationView
+                android:id="@+id/bottomNavigationView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:itemBackground="@color/colorWhite"
+                design:menu="@menu/navigation" />
+
+        </FrameLayout>
 
 
 
-</LinearLayout>
+    </LinearLayout>

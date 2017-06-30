@@ -24,7 +24,9 @@ public class activity_rechnung extends AppCompatActivity {
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener(){
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item){
-                if (item.getItemId()==R.id.menu_allgemein){
+                if (item.getItemId()==R.id.menu_start){
+                    startActivity(new Intent(activity_rechnung.this, MainActivity.class));
+                } else if(item.getItemId()==R.id.menu_allgemein){
                     startActivity(new Intent(activity_rechnung.this, activity_allgemein.class));
                 } else if(item.getItemId()==R.id.menu_transport){
                     startActivity(new Intent(activity_rechnung.this, activity_transport.class));
