@@ -24,7 +24,6 @@ import java.util.Date;
 
 public class activity_auto extends AppCompatActivity {
 
-    ImageView imageView;
     private BottomNavigationView bottomNavigationView;
 
 
@@ -35,7 +34,6 @@ public class activity_auto extends AppCompatActivity {
         setContentView(R.layout.activity_auto);
 
         ImageButton btnCamera= (ImageButton)findViewById(R.id.btnCamera);
-        imageView=(ImageView)findViewById(R.id.imageView);
 
         StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
         StrictMode.setVmPolicy(builder.build());

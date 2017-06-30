@@ -76,6 +76,15 @@
         android:padding="5dp"
         />
 
+    <ImageButton
+        android:id="@+id/btnCamera"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/layout_bg"
+        android:onClick="onButtonClicked"
+        android:padding="5dp"
+        design:srcCompat="@android:drawable/ic_menu_camera" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -83,19 +92,6 @@
         android:paddingBottom="80dp"
         android:radius="10dip">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/imageView"/>
-
-        <ImageButton
-            android:id="@+id/btnCamera"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="5dp"
-            android:background="@drawable/layout_bg"
-            android:onClick="onButtonClicked"
-            design:srcCompat="@android:drawable/ic_menu_camera" />
     </LinearLayout>
 
     <Button
