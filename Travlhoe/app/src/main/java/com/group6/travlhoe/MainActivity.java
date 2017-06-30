@@ -19,10 +19,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btnTransport = (Button) findViewById(R.id.Transport);
-        btnAllgemein = (Button) findViewById(R.id.Allgemein);
-        btnUnterkunft = (Button) findViewById(R.id.Unterkunft);
-        btnRechnung = (Button) findViewById(R.id.Rechnung);
+        btnTransport = (Button) findViewById(R.id.button1);
+        btnAllgemein = (Button) findViewById(R.id.button2);
+        btnUnterkunft = (Button) findViewById(R.id.button3);
+        btnRechnung = (Button) findViewById(R.id.button4);
 
         btnTransport.setOnClickListener(this);
         btnRechnung.setOnClickListener(this);
@@ -33,13 +33,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        if (v.getId() == R.id.Allgemein) {
+        if (v.getId() == R.id.button1) {
             startActivity(new Intent(MainActivity.this, activity_allgemein.class));
-        } else if (v.getId() == R.id.Transport) {
+        } else if (v.getId() == R.id.button2) {
             startActivity(new Intent(MainActivity.this, activity_transport.class));
-        } else if (v.getId() == R.id.Unterkunft) {
+        } else if (v.getId() == R.id.button3) {
             startActivity(new Intent(MainActivity.this, activity_unterkunft.class));
-        } else if (v.getId() == R.id.Rechnung) {
+        } else if (v.getId() == R.id.button4) {
             startActivity(new Intent(MainActivity.this, activity_rechnung.class));
         }
     }
