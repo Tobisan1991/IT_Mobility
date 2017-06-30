@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/hintergrund">
+    android:background="@drawable/wallapper">
 
 
     <LinearLayout
@@ -50,9 +50,9 @@
                 android:layout_height="123dp"
                 android:layout_weight="0.72"
                 android:height="60dp"
-                android:background="@drawable/mybuttonWeiss"
+                android:background="@drawable/mybuttonweiss"
                 android:drawablePadding="5dp"
-                android:drawableTop="@drawable/HauptMenuMensch"
+                android:drawableTop="@drawable/haupt_menumensch"
                 android:gravity="bottom|center_horizontal"
                 android:padding="6dp"
                 android:text="Allgemein"
@@ -81,7 +81,6 @@
 
         </LinearLayout>
 
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -97,7 +96,7 @@
                 android:height="60dp"
                 android:background="@drawable/mybutton"
                 android:drawablePadding="5dp"
-                android:drawableTop="@drawable/Haus"
+                android:drawableTop="@drawable/haus"
                 android:gravity="bottom|center_horizontal"
                 android:padding="6dp"
                 android:text="Unterkunft"
@@ -110,7 +109,7 @@
                 android:layout_height="123dp"
                 android:layout_weight="0.81"
                 android:height="60dp"
-                android:background="@drawable/mybuttonWeiss"
+                android:background="@drawable/mybuttonweiss"
                 android:drawablePadding="5dp"
                 android:drawableTop="@drawable/creditcardicon"
                 android:gravity="bottom|center_horizontal"
