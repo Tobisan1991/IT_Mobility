@@ -37,89 +37,100 @@
                 tools:layout_editor_absoluteX="111dp" />
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_alignParentBottom="true"
-            android:layout_weight="1"
-            android:weightSum="2">
-
-            <Button
-                android:id="@+id/button1"
-                android:layout_width="wrap_content"
-                android:layout_height="123dp"
-                android:layout_weight="0.72"
-                android:height="60dp"
-                android:background="@drawable/mybuttonorange"
-                android:drawablePadding="5dp"
-                android:drawableTop="@drawable/haupt_menumensch"
-                android:gravity="bottom|center_horizontal"
-                android:padding="6dp"
-                android:text="Allgemein"
-                android:textColor="#e95c0f"
-                android:textStyle="bold" />
-
-            <Button
-                android:id="@+id/button2"
-                android:layout_width="wrap_content"
-                android:layout_height="123dp"
-                android:layout_weight="0.69"
-                android:height="60dp"
-                android:background="@drawable/mybuttongruen"
-                android:drawablePadding="5dp"
-                android:drawableTop="@drawable/ic_directions_car_black_24dp"
-                android:gravity="bottom|center_horizontal"
-                android:padding="6dp"
-                android:text="Transport"
-                android:textColor="#85c433"
-                android:textStyle="bold" />
-        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="10dp">
+            android:layout_height="190dp"
+            android:layout_weight="1.1"
+            android:orientation="vertical">
 
-        </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_alignParentBottom="true"
+                android:layout_weight="1"
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp"
+                android:weightSum="2">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_alignParentBottom="true"
-            android:layout_weight="1"
-            android:weightSum="2">
+                <Button
+                    android:id="@+id/button1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="123dp"
+                    android:layout_weight="0.72"
+                    android:height="60dp"
+                    android:background="@drawable/mybuttonorange"
+                    android:drawablePadding="5dp"
+                    android:drawableTop="@drawable/haupt_menumensch"
+                    android:gravity="bottom|center_horizontal"
+                    android:padding="6dp"
+                    android:text="Allgemein"
+                    android:textColor="#e95c0f"
+                    android:textStyle="bold" />
 
-            <Button
-                android:id="@+id/button3"
-                android:layout_width="wrap_content"
-                android:layout_height="123dp"
-                android:layout_weight="0.60"
-                android:height="60dp"
-                android:background="@drawable/mybuttonturk"
-                android:drawablePadding="5dp"
-                android:drawableTop="@drawable/haus"
-                android:gravity="bottom|center_horizontal"
-                android:padding="6dp"
-                android:text="Unterkunft"
-                android:textColor="#65c9b4"
-                android:textStyle="bold" />
+                <Button
+                    android:id="@+id/button2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="123dp"
+                    android:layout_weight="0.69"
+                    android:height="60dp"
+                    android:background="@drawable/mybuttongruen"
+                    android:drawablePadding="5dp"
+                    android:drawableTop="@drawable/ic_directions_car_black_24dp"
+                    android:gravity="bottom|center_horizontal"
+                    android:padding="6dp"
+                    android:text="Transport"
+                    android:textColor="#85c433"
+                    android:textStyle="bold" />
+            </LinearLayout>
 
-            <Button
-                android:id="@+id/button4"
-                android:layout_width="wrap_content"
-                android:layout_height="123dp"
-                android:layout_weight="0.81"
-                android:height="60dp"
-                android:background="@drawable/mybuttonblau"
-                android:drawablePadding="5dp"
-                android:drawableTop="@drawable/creditcardicon"
-                android:gravity="bottom|center_horizontal"
-                android:padding="6dp"
-                android:text="Rechnung"
-                android:textColor="#3dc3e9"
-                android:textStyle="bold" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="10dp">
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_alignParentBottom="true"
+                android:layout_weight="1"
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp"
+                android:weightSum="2">
+
+                <Button
+                    android:id="@+id/button3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="123dp"
+                    android:layout_weight="0.60"
+                    android:height="60dp"
+                    android:background="@drawable/mybuttonturk"
+                    android:drawablePadding="5dp"
+                    android:drawableTop="@drawable/haus"
+                    android:gravity="bottom|center_horizontal"
+                    android:padding="6dp"
+                    android:text="Unterkunft"
+                    android:textColor="#65c9b4"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/button4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="123dp"
+                    android:layout_weight="0.81"
+                    android:height="60dp"
+                    android:background="@drawable/mybuttonblau"
+                    android:drawablePadding="5dp"
+                    android:drawableTop="@drawable/creditcardicon"
+                    android:gravity="bottom|center_horizontal"
+                    android:padding="6dp"
+                    android:text="Rechnung"
+                    android:textColor="#3dc3e9"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
         </LinearLayout>
 
     </LinearLayout>
-
-
 </LinearLayout>
