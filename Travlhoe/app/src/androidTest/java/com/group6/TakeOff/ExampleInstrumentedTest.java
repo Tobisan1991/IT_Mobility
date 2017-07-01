@@ -1,4 +1,4 @@
-package com.group6.travlhoe;
+package com.group6.TakeOff;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

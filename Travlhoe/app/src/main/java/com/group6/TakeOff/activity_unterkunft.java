@@ -1,4 +1,4 @@
-package com.group6.travlhoe;
+package com.group6.TakeOff;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,13 +11,13 @@ import android.view.MenuItem;
  * Created by STzavelas on 24.06.17.
  */
 
-public class activity_rechnung extends AppCompatActivity {
+public class activity_unterkunft extends AppCompatActivity {
 
     private BottomNavigationView bottomNavigationView;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_rechnung);
+        setContentView(R.layout.activity_unterkunft);
 
         bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavigationView);
 
@@ -25,20 +25,20 @@ public class activity_rechnung extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item){
                 if (item.getItemId()==R.id.menu_start){
-                    startActivity(new Intent(activity_rechnung.this, MainActivity.class));
+                    startActivity(new Intent(activity_unterkunft.this, MainActivity.class));
                 } else if(item.getItemId()==R.id.menu_allgemein){
-                    startActivity(new Intent(activity_rechnung.this, activity_allgemein.class));
+                    startActivity(new Intent(activity_unterkunft.this, activity_allgemein.class));
                 } else if(item.getItemId()==R.id.menu_transport){
-                    startActivity(new Intent(activity_rechnung.this, activity_transport.class));
+                    startActivity(new Intent(activity_unterkunft.this, activity_transport.class));
                 } else if(item.getItemId()==R.id.menu_rechnung){
-                    startActivity(new Intent(activity_rechnung.this, activity_rechnung.class));
+                    startActivity(new Intent(activity_unterkunft.this, activity_rechnung.class));
                 } else if(item.getItemId()==R.id.menu_unterkunft){
-                    startActivity(new Intent(activity_rechnung.this, activity_unterkunft.class));
+                    startActivity(new Intent(activity_unterkunft.this, activity_unterkunft.class));
                 }
                 return true;
             }
         });
 
-        bottomNavigationView.setSelectedItemId(R.id.menu_rechnung);
+        bottomNavigationView.setSelectedItemId(R.id.menu_unterkunft);
     }
 }

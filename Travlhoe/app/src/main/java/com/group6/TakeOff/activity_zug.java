@@ -1,4 +1,4 @@
-package com.group6.travlhoe;
+package com.group6.TakeOff;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -14,15 +14,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ * Created by STzavelas on 29.06.17.
+ */
 
-
-public class activity_flugzeug extends AppCompatActivity{
+public class activity_zug extends AppCompatActivity {
 
     private BottomNavigationView bottomNavigationView;
 
@@ -30,7 +31,7 @@ public class activity_flugzeug extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_flugzeug);
+        setContentView(R.layout.activity_zug);
 
         ImageButton btnCamera= (ImageButton)findViewById(R.id.btnCamera);
 
@@ -41,17 +42,17 @@ public class activity_flugzeug extends AppCompatActivity{
 
         bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavigationView);
 
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener(){
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item){
-                if (item.getItemId()==R.id.menu_start){
-                    startActivity(new Intent(activity_flugzeug.this, MainActivity.class));
-                } else if(item.getItemId()==R.id.menu_allgemein){
-                    startActivity(new Intent(activity_flugzeug.this, activity_allgemein.class));
-                } else if(item.getItemId()==R.id.menu_rechnung){
-                    startActivity(new Intent(activity_flugzeug.this, activity_rechnung.class));
-                } else if(item.getItemId()==R.id.menu_unterkunft){
-                    startActivity(new Intent(activity_flugzeug.this, activity_unterkunft.class));
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                if (item.getItemId() == R.id.menu_start) {
+                    startActivity(new Intent(activity_zug.this, MainActivity.class));
+                } else if (item.getItemId() == R.id.menu_allgemein) {
+                    startActivity(new Intent(activity_zug.this, activity_allgemein.class));
+                } else if (item.getItemId() == R.id.menu_rechnung) {
+                    startActivity(new Intent(activity_zug.this, activity_rechnung.class));
+                } else if (item.getItemId() == R.id.menu_unterkunft) {
+                    startActivity(new Intent(activity_zug.this, activity_unterkunft.class));
                 }
                 return true;
             }
@@ -75,7 +76,7 @@ public class activity_flugzeug extends AppCompatActivity{
             startActivityForResult(intent, 0);
         }
         if(v.getId()==R.id.goToGPS) {
-            Intent intent2 = new Intent(activity_flugzeug.this, function_gps.class );
+            Intent intent2 = new Intent(activity_zug.this, function_gps.class );
             startActivity(intent2);
         }
     }
@@ -85,7 +86,6 @@ public class activity_flugzeug extends AppCompatActivity{
         return "Rechnung"+ timestamp + ".jpg";
     }
 
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -94,7 +94,6 @@ public class activity_flugzeug extends AppCompatActivity{
 
         //imageView.setImageBitmap(bitmap);
     }
-
 
 
 
