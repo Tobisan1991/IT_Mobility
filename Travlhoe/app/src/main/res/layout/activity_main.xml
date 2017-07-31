@@ -43,7 +43,7 @@
             android:layout_height="0dp"
             android:layout_alignParentBottom="true"
             android:layout_weight="2.69"
-            android:paddingLeft="45dp"
+            android:paddingLeft="52dp"
             android:paddingRight="35dp"
             android:weightSum="0">
 
