@@ -16,9 +16,10 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="182dp"
+            android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:paddingBottom="50sp">
+            android:paddingBottom="50sp"
+            android:layout_weight="1">
         </LinearLayout>
 
         <LinearLayout
