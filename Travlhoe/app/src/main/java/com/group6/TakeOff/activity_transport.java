@@ -72,7 +72,7 @@ public class activity_transport extends Activity implements View.OnClickListener
                 startActivity(i1);
                 break;
             case R.id.Bahn:
-                Intent i2 = new Intent(activity_transport.this, activity_zug.class);
+                Intent i2 = new Intent(activity_transport.this, activity_bahn.class);
                 startActivity(i2);
                 break;
             case R.id.Taxi:

@@ -17,7 +17,8 @@
     <Spinner
         android:id="@+id/ChooseProject"
         android:layout_width="140dp"
-        android:layout_height="30dp" />
+        android:layout_height="30dp"
+        android:spinnerMode="dialog"/>
 
     <TextView
         android:layout_width="wrap_content"

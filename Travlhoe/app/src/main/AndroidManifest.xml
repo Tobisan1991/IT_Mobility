@@ -30,7 +30,7 @@
             android:name="com.group6.TakeOff.activity_taxi"
             android:label="@string/title_taxi" />
         <activity
-            android:name="com.group6.TakeOff.activity_zug"
+            android:name="com.group6.TakeOff.activity_bahn"
             android:label="@string/title_zug" />
 
         <activity

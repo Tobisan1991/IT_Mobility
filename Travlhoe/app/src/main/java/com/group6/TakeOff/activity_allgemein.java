@@ -35,12 +35,12 @@ public class activity_allgemein extends AppCompatActivity implements View.OnClic
     private EditText DatumVon;
     private EditText DatumBis;
 
-
-
     private DatePickerDialog fromDatePickerDialog;
     private DatePickerDialog toDatePickerDialog;
 
     private SimpleDateFormat dateFormatter;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +57,7 @@ public class activity_allgemein extends AppCompatActivity implements View.OnClic
         btn_save=(Button) findViewById(R.id.btn_save);
         SaveData();
 
-
+        //+++++++++++BOTTOM NAVIGATION BAR++++++++++++++//
         bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavigationView);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener(){
@@ -94,7 +94,7 @@ public class activity_allgemein extends AppCompatActivity implements View.OnClic
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        boolean isInserted = myDb.insertData(
+                        boolean isInserted = myDb.createProject(
                                 CreateProject.getText().toString(),
                                 eTxt_DatumVon.getText().toString(),
                                 eTxt_DatumBis.getText().toString(),
