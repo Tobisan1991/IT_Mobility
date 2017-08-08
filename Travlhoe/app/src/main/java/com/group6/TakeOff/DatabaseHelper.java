@@ -240,4 +240,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return projects;
     }
 
+    //Getting data for Recycler View//
+    public Cursor getListContents() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor data = db.rawQuery("SELECT " + KEY_PROJECT + " , " + KEY_NAME + " FROM " + TABLE_PROJEKT, null);
+        return data;
+    }
+
 }
