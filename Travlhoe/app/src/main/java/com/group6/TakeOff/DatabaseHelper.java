@@ -28,7 +28,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
     //Common column names
-    public static final String KEY_ID = "ID";
     public static final String KEY_PROJECT = "PROJEKT";
 
     //create project column names
@@ -47,48 +46,42 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     //CREATE TABLE STATEMENTS
     private static final String CREATE_TABLE_PROJEKT = "create table " + TABLE_PROJEKT +
-            "(ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
-            "PROJEKT TEXT, " +
-            "DATE_FROM TEXT, " +
-            "DATE_TO TEXT, " +
-            "NACHNAME TEXT, " +
-            "VORNAME TEXT, " +
-            "KOSTENSTELLE TEXT)";
+            "(PROJEKT TEXT PRIMARY KEY, " +
+            "DATE_FROM DATE, " +
+            "DATE_TO DATE, " +
+            "NACHNAME VARCHAR2, " +
+            "VORNAME VARCHAR2, " +
+            "KOSTENSTELLE VARCHAR2)";
 
     private static final String CREATE_TABLE_UNTERKUNFT = "create table " + TABLE_UNTERKUNFT +
-            "(ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
-            "PROJEKT TEXT, " +
-            "ENTFERNUNG INTEGER, " +
-            "PRICE INTEGER, " +
-            "MWST INTEGER)";
+            "(PROJEKT VARCHAR2, " +
+            "ENTFERNUNG DOUBLE, " +
+            "PRICE DOUBLE, " +
+            "MWST DOUBLE)";
 
     private static final String CREATE_TABLE_AUTO = "create table " + TABLE_AUTO +
-            "(ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
-            "PROJEKT TEXT, " +
-            "ENTFERNUNG INTEGER, " +
-            "PRICE INTEGER, " +
-            "MWST INTEGER)";
+            "(PROJEKT VARCHAR2, " +
+            "ENTFERNUNG DOUBLE, " +
+            "PRICE DOUBLE, " +
+            "MWST DOUBLE)";
 
     private static final String CREATE_TABLE_FLUGZEUG = "create table " + TABLE_FLUGZEUG +
-            "(ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
-            "PROJEKT TEXT, " +
-            "ENTFERNUNG INTEGER, " +
-            "PRICE INTEGER, " +
-            "MWST INTEGER)";
+            "(PROJEKT VARCHAR2, " +
+            "ENTFERNUNG DOUBLE, " +
+            "PRICE DOUBLE, " +
+            "MWST DOUBLE)";
 
     private static final String CREATE_TABLE_TAXI= "create table " + TABLE_TAXI +
-            "(ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
-            "PROJEKT TEXT, " +
-            "ENTFERNUNG INTEGER, " +
-            "PRICE INTEGER, " +
-            "MWST INTEGER)";
+            "(PROJEKT VARCHAR2, " +
+            "ENTFERNUNG DOUBLE, " +
+            "PRICE DOUBLE, " +
+            "MWST DOUBLE)";
 
     private static final String CREATE_TABLE_BAHN = "create table " + TABLE_BAHN +
-            "(ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
-            "PROJEKT TEXT, " +
-            "ENTFERNUNG INTEGER, " +
-            "PRICE INTEGER, " +
-            "MWST INTEGER)";
+            "(PROJEKT VARCHAR2, " +
+            "ENTFERNUNG DOUBLE, " +
+            "PRICE DOUBLE, " +
+            "MWST DOUBLE)";
 
 
     public DatabaseHelper(Context context) {
@@ -240,11 +233,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return projects;
     }
 
+
+
     //Getting data for Recycler View//
     public Cursor getListContents() {
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor data = db.rawQuery("SELECT " + KEY_PROJECT + " , " + KEY_NAME + " FROM " + TABLE_PROJEKT, null);
+        Cursor data = db.rawQuery("SELECT " + KEY_PROJECT + " , " + KEY_NAME + " , " + KEY_DATE_FROM + " , " + KEY_DATE_TO + " FROM " + TABLE_PROJEKT, null);
         return data;
     }
+
+
 
 }

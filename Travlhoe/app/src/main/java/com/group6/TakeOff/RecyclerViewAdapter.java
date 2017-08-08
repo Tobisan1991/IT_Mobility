@@ -19,11 +19,15 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         public TextView Project;
         public TextView Name;
+        public TextView DATE_FROM;
+        public TextView DATE_TO;
 
         public ViewHolder(final View itemView){
             super (itemView);
             Project = (TextView) itemView.findViewById(R.id.textProject);
             Name = (TextView) itemView.findViewById(R.id.textName);
+            DATE_FROM =  (TextView) itemView.findViewById(R.id.dateFrom);
+            DATE_TO =  (TextView) itemView.findViewById(R.id.dateTo);
 
         }
     }
@@ -53,6 +57,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         TextView mPrice = holder.Name;
         mPrice.setText(trip.getName());
+
+        TextView mDateFrom = holder.DATE_FROM;
+        mPrice.setText(trip.getDateFrom());
+
+        TextView mDateTo = holder.DATE_TO;
+        mPrice.setText(trip.getDateTo());
 
     }
 
