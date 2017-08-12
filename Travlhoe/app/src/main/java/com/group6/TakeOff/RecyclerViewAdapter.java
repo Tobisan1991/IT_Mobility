@@ -55,14 +55,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         TextView mProject = holder.Project;
         mProject.setText(trip.getProject());
 
-        TextView mPrice = holder.Name;
-        mPrice.setText(trip.getName());
+        TextView mName = holder.Name;
+        mName.setText(trip.getName());
 
         TextView mDateFrom = holder.DATE_FROM;
-        mPrice.setText(trip.getDateFrom());
+        mDateFrom.setText(trip.getDateFrom());
 
         TextView mDateTo = holder.DATE_TO;
-        mPrice.setText(trip.getDateTo());
+        mDateTo.setText(trip.getDateTo());
 
     }
 
