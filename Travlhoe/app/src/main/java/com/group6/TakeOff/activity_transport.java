@@ -9,6 +9,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
+
+import static com.group6.TakeOff.R.id.bottomNavigationView;
+
 /**
  * Created by STzavelas on 29.06.17.
  */
@@ -17,7 +21,7 @@ public class activity_transport extends Activity implements View.OnClickListener
 
     Button btnAuto, btnFlugzeug, btnTaxi, btnZug;
     private static final String TAG = "Transport";
-    private BottomNavigationView bottomNavigationView;
+    private BottomNavigationViewEx bottomNavigationViewEx;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,9 +39,9 @@ public class activity_transport extends Activity implements View.OnClickListener
         btnTaxi.setOnClickListener(this);
         btnZug.setOnClickListener(this);
 
-        bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavigationView);
+        bottomNavigationViewEx = (BottomNavigationViewEx) findViewById(bottomNavigationView);
 
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener(){
+        bottomNavigationViewEx.setOnNavigationItemSelectedListener(new BottomNavigationViewEx.OnNavigationItemSelectedListener(){
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item){
                 if (item.getItemId()==R.id.menu_start){
@@ -55,7 +59,8 @@ public class activity_transport extends Activity implements View.OnClickListener
             }
         });
 
-        bottomNavigationView.setSelectedItemId(R.id.menu_transport);
+        bottomNavigationViewEx.setSelectedItemId(R.id.menu_transport);
+        BottomNavigationViewHelper.setupBottomNavigationView(bottomNavigationViewEx);
     }
 
     @Override

@@ -21,6 +21,8 @@ import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
+
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -32,7 +34,7 @@ import java.util.List;
 
 public class activity_taxi extends AppCompatActivity {
 
-    private BottomNavigationView bottomNavigationView;
+    private BottomNavigationViewEx bottomNavigationViewEx;
 
     DatabaseHelper myDb;
     Button btn_save;
@@ -62,9 +64,9 @@ public class activity_taxi extends AppCompatActivity {
         builder.detectFileUriExposure();
 
         //++++++++++++BOTTOM NAVIGATION BAR++++++++++++//
-        bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavigationView);
+        bottomNavigationViewEx = (BottomNavigationViewEx) findViewById(R.id.bottomNavigationView);
 
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+        bottomNavigationViewEx.setOnNavigationItemSelectedListener(new BottomNavigationViewEx.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 if (item.getItemId() == R.id.menu_start) {
@@ -80,7 +82,8 @@ public class activity_taxi extends AppCompatActivity {
             }
         });
 
-        bottomNavigationView.setSelectedItemId(R.id.menu_transport);
+        bottomNavigationViewEx.setSelectedItemId(R.id.menu_transport);
+        BottomNavigationViewHelper.setupBottomNavigationView(bottomNavigationViewEx);
 
 
     }

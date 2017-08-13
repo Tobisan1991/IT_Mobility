@@ -13,6 +13,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 import android.widget.ArrayAdapter;;
+import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
+
 import java.util.List;
 
 /**
@@ -28,7 +30,7 @@ public class activity_unterkunft extends AppCompatActivity {
     String selectedspinner;
 
 
-    private BottomNavigationView bottomNavigationView;
+    private BottomNavigationViewEx bottomNavigationViewEx;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,9 +47,9 @@ public class activity_unterkunft extends AppCompatActivity {
 
 
         //++++++++++++BOTTOM NAVIGATION BAR++++++++++++//
-        bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavigationView);
+        bottomNavigationViewEx = (BottomNavigationViewEx) findViewById(R.id.bottomNavigationView);
 
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener(){
+        bottomNavigationViewEx.setOnNavigationItemSelectedListener(new BottomNavigationViewEx.OnNavigationItemSelectedListener(){
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item){
                 if (item.getItemId()==R.id.menu_start){
@@ -65,7 +67,8 @@ public class activity_unterkunft extends AppCompatActivity {
             }
         });
 
-        bottomNavigationView.setSelectedItemId(R.id.menu_unterkunft);
+        bottomNavigationViewEx.setSelectedItemId(R.id.menu_unterkunft);
+        BottomNavigationViewHelper.setupBottomNavigationView(bottomNavigationViewEx);
     }
 
     /**

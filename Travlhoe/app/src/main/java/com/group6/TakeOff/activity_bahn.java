@@ -21,10 +21,14 @@ import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
+
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+
+import static com.group6.TakeOff.R.id.bottomNavigationView;
 
 /**
  * Created by STzavelas on 29.06.17.
@@ -38,7 +42,7 @@ public class activity_bahn extends AppCompatActivity {
     EditText Entfernung,Price,MWST;
     String selectedspinner;
 
-    private BottomNavigationView bottomNavigationView;
+    private BottomNavigationViewEx bottomNavigationViewEx;
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR2)
     @Override
@@ -62,9 +66,9 @@ public class activity_bahn extends AppCompatActivity {
         builder.detectFileUriExposure();
 
         //++++++++++++BOTTOM NAVIGATION BAR++++++++++++//
-        bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavigationView);
+        bottomNavigationViewEx = (BottomNavigationViewEx) findViewById(bottomNavigationView);
 
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+        bottomNavigationViewEx.setOnNavigationItemSelectedListener(new BottomNavigationViewEx.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 if (item.getItemId() == R.id.menu_start) {
@@ -80,7 +84,8 @@ public class activity_bahn extends AppCompatActivity {
             }
         });
 
-        bottomNavigationView.setSelectedItemId(R.id.menu_transport);
+        bottomNavigationViewEx.setSelectedItemId(R.id.menu_transport);
+        BottomNavigationViewHelper.setupBottomNavigationView(bottomNavigationViewEx);
     }
 
     public void onButtonClicked(View v){

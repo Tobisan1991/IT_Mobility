@@ -14,6 +14,8 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
@@ -27,7 +29,7 @@ public class activity_allgemein extends AppCompatActivity implements View.OnClic
 
     DatabaseHelper myDb;
 
-    private BottomNavigationView bottomNavigationView;
+    private BottomNavigationViewEx bottomNavigationViewEx;
 
     EditText CreateProject, eTxt_DatumVon, eTxt_DatumBis, Nachname, Vorname, Kostenstelle;
     Button btn_save;
@@ -58,9 +60,9 @@ public class activity_allgemein extends AppCompatActivity implements View.OnClic
         SaveData();
 
         //+++++++++++BOTTOM NAVIGATION BAR++++++++++++++//
-        bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavigationView);
+        bottomNavigationViewEx = (BottomNavigationViewEx) findViewById(R.id.bottomNavigationView);
 
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener(){
+        bottomNavigationViewEx.setOnNavigationItemSelectedListener(new BottomNavigationViewEx.OnNavigationItemSelectedListener(){
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item){
                 if (item.getItemId()==R.id.menu_start){
@@ -78,7 +80,8 @@ public class activity_allgemein extends AppCompatActivity implements View.OnClic
             }
             });
 
-        bottomNavigationView.setSelectedItemId(R.id.menu_allgemein);
+        bottomNavigationViewEx.setSelectedItemId(R.id.menu_allgemein);
+        BottomNavigationViewHelper.setupBottomNavigationView(bottomNavigationViewEx);
 
 
         dateFormatter = new SimpleDateFormat("dd-MM-yyyy", Locale.GERMAN);

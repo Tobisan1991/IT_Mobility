@@ -122,12 +122,12 @@
                 android:background="@drawable/shadow" />
 
 
-            <android.support.design.widget.BottomNavigationView
+            <com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
                 android:id="@+id/bottomNavigationView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:itemBackground="@color/colorWhite"
-                design:menu="@menu/navigation" />
+                design:menu="@menu/navigation"> </com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx>
 
         </FrameLayout>
     </LinearLayout>
