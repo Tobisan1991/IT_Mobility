@@ -1,104 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:design="http://schemas.android.com/apk/res-auto"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="10dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#FFFFFF">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:text="Projekt"
-        android:layout_height="wrap_content" />
 
-    <EditText
-        android:id="@+id/CreateProject"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:text="Zeitraum"
-        android:layout_height="wrap_content" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="5dp"
-        android:orientation="horizontal">
+        android:theme="@style/TextLabel"
+        android:id="@+id/textInputCreateProject"
+        android:layout_marginBottom="10dp">
 
-        <EditText
+        <android.support.v7.widget.AppCompatEditText
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="Projekt"
+            android:id="@+id/CreateProject"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/TextLabel"
+        android:id="@+id/textInputDatumVon"
+        android:layout_below="@id/textInputCreateProject"
+        android:layout_marginBottom="10dp">
+        <android.support.v7.widget.AppCompatEditText
             android:id="@+id/eTxt_DatumVon"
             android:layout_width="122dp"
             android:layout_height="wrap_content"
-            android:hint="@string/from_date"/>
+            android:hint="@string/from_date" />
+        </android.support.design.widget.TextInputLayout>
 
-        <EditText
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/TextLabel"
+        android:id="@+id/textInputDatumBis"
+        android:layout_below="@id/textInputCreateProject"
+        android:layout_alignBaseline="@id/textInputDatumVon"
+        android:layout_marginLeft="150dp"
+        android:layout_marginBottom="10dp">
+        <android.support.v7.widget.AppCompatEditText
             android:id="@+id/eTxt_DatumBis"
             android:layout_width="122dp"
             android:layout_height="wrap_content"
-            android:hint="@string/to_date"/>
+            android:hint="@string/to_date" />
+    </android.support.design.widget.TextInputLayout>
 
-    </LinearLayout>
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:text="Nachname"
-        android:layout_height="wrap_content" />
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/TextLabel"
+        android:id="@+id/textInputNachname"
+        android:layout_below="@id/textInputDatumVon"
+        android:layout_marginBottom="10dp">
+        <android.support.v7.widget.AppCompatEditText
+            android:id="@+id/Nachname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nachname"/>
+    </android.support.design.widget.TextInputLayout>
 
-    <EditText
-        android:id="@+id/Nachname"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:text="Vorname"
-        android:layout_height="wrap_content" />
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/TextLabel"
+        android:id="@+id/textInputVorname"
+        android:layout_below="@id/textInputNachname"
+        android:layout_marginBottom="10dp">
+        <android.support.v7.widget.AppCompatEditText
+            android:id="@+id/Vorname"
+            android:hint="Vorname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </android.support.design.widget.TextInputLayout>
 
-    <EditText
-        android:id="@+id/Vorname"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:text="Kostenstelle"
-        android:layout_height="wrap_content" />
-
-    <EditText
-        android:id="@+id/Kostenstelle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/TextLabel"
+        android:id="@+id/textInputKostenstelle"
+        android:layout_below="@id/textInputVorname"
+        android:layout_marginBottom="10dp">
+        <android.support.v7.widget.AppCompatEditText
+            android:id="@+id/Kostenstelle"
+            android:hint="Kostenstelle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </android.support.design.widget.TextInputLayout>
 
 
     <Button
 
-        android:layout_width="wrap_content"
+        android:id="@+id/btn_save"
+        android:layout_marginTop="20dp"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/colorWhite"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/speichern_button"
-        android:id="@+id/btn_save">
+        android:layout_below="@id/textInputKostenstelle"
+        android:text="@string/speichern_button">
 
     </Button>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingBottom="100dp"
-        android:orientation="horizontal">
-
-
-
-    </LinearLayout>
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom">
+        android:layout_gravity="bottom"
+        android:layout_alignParentBottom="true">
 
         <View
             android:layout_width="match_parent"
@@ -110,13 +134,14 @@
             android:id="@+id/bottomNavigationView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_gravity="bottom"
             app:menu="@menu/navigation">
 
         </com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx>
 
     </FrameLayout>
-    
 
 
 
-</LinearLayout>
+
+</RelativeLayout>
