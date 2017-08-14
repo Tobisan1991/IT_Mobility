@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/hintergrund">
+    android:baselineAligned="false"
+    android:background="@drawable/background">
 
 
     <LinearLayout
@@ -27,8 +28,8 @@
                 android:layout_height="100dp"
                 android:layout_below="@+id/linearLayout"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="51dp"
-                android:text="T   a   k   e  O   f   f"
+                android:layout_marginTop="51dp"/>
+                //android:text="T   a   k   e  O   f   f"
                 android:textAlignment="center"
                 android:textColor="@android:color/background_light"
                 android:textSize="24sp"
@@ -51,22 +52,24 @@
             <LinearLayout
                 android:layout_width="149dp"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:layout_weight="0.05">
+                android:layout_weight="0.05"
+                android:orientation="vertical">
 
                 <Button
-                        android:id="@+id/button1"
-                        android:layout_width="125dp"
-                        android:layout_height="125dp"
-                        android:height="60dp"
-                        android:background="@drawable/mybuttonorange"
-                        android:drawablePadding="5dp"
-                        android:drawableTop="@drawable/ic_perm_identity_black_64dp"
-                        android:gravity="bottom|center_horizontal"
-                        android:padding="20dp"
-                        android:text="Allgemein"
-                        android:textColor="#e95c0f"
-                        android:textStyle="bold" />
+                    android:id="@+id/button1"
+                    android:layout_width="125dp"
+                    android:layout_height="125dp"
+                    android:height="60dp"
+                    android:background="@drawable/mybuttonorange"
+                    android:drawablePadding="5dp"
+                    android:drawableTop="@drawable/ic_perm_identity_black_64dp"
+                    android:gravity="bottom|center_horizontal"
+                    android:padding="20dp"
+                    android:text="Allgemein"
+                    android:textColor="#000000"
+                    android:textStyle="bold" />
+                //android:textColor="#e95c0f"
+
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -74,19 +77,21 @@
 
                 </LinearLayout>
 
-                    <Button
-                        android:id="@+id/button3"
-                        android:layout_width="125dp"
-                        android:layout_height="125dp"
-                        android:height="60dp"
-                        android:background="@drawable/mybuttonturk"
-                        android:drawablePadding="5dp"
-                        android:drawableTop="@drawable/ic_local_hotel_black_64dp"
-                        android:gravity="bottom|center_horizontal"
-                        android:padding="16dp"
-                        android:text="Unterkunft"
-                        android:textColor="#65c9b4"
-                        android:textStyle="bold" />
+                <Button
+                    android:id="@+id/button3"
+                    android:layout_width="125dp"
+                    android:layout_height="125dp"
+                    android:height="60dp"
+                    android:background="@drawable/mybuttonturk"
+                    android:drawablePadding="5dp"
+                    android:drawableTop="@drawable/ic_local_hotel_black_64dp"
+                    android:gravity="bottom|center_horizontal"
+                    android:padding="16dp"
+                    android:text="Unterkunft"
+                    android:textColor="#000000"
+                    android:textStyle="bold" />
+                //android:textColor="#65c9b4"
+
 
             </LinearLayout>
 
@@ -110,8 +115,10 @@
                     android:gravity="bottom|center_horizontal"
                     android:padding="12dp"
                     android:text="Transport"
-                    android:textColor="#85c433"
+                    android:textColor="#000000"
                     android:textStyle="bold" />
+                //android:textColor="#85c433"
+
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -130,8 +137,10 @@
                     android:gravity="bottom|center_horizontal"
                     android:padding="24dp"
                     android:text="Rechnung"
-                    android:textColor="#ff3dc3e9"
+                    android:textColor="#000000"
                     android:textStyle="bold" />
+                //android:textColor="#ff3dc3e9"
+
 
             </LinearLayout>
 
@@ -139,16 +148,6 @@
         </LinearLayout>
 
 
-
-
-
-
-
-
-
-
-
-
-        </LinearLayout>
-
     </LinearLayout>
+
+</LinearLayout>
