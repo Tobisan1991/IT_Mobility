@@ -13,5 +13,6 @@ public class BottomNavigationViewHelper {
         bottomNavigationViewEx.enableItemShiftingMode(false);
         bottomNavigationViewEx.enableShiftingMode(false);
         bottomNavigationViewEx.setTextVisibility(false);
+        bottomNavigationViewEx.setIconsMarginTop(30);
     }
 }
