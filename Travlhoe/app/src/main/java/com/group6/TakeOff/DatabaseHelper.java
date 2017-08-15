@@ -238,9 +238,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     //Getting data for Recycler View//
     public Cursor getListContents() {
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor data = db.rawQuery("SELECT " + KEY_PROJECT + " , " + KEY_NAME + " , " + KEY_DATE_FROM + " , " + KEY_DATE_TO + " FROM " + TABLE_PROJEKT, null);
+        Cursor data = db.rawQuery("SELECT " + TABLE_PROJEKT + "." + KEY_PROJECT + " , " +
+                        "sum("+ TABLE_AUTO + "." + KEY_PRICE + ")" +
+                        " , " + KEY_DATE_FROM + " , " + KEY_DATE_TO + " FROM " + TABLE_PROJEKT +
+                        " inner join " + TABLE_AUTO + " on " + "(" + TABLE_AUTO + "." + KEY_PROJECT + "=" + TABLE_PROJEKT + "." + KEY_PROJECT + " ) " +
+                        "group by " + TABLE_PROJEKT + "." + KEY_PROJECT + "," + TABLE_PROJEKT + "." + KEY_DATE_FROM + "," + TABLE_PROJEKT + "." + KEY_DATE_TO, null);
         return data;
     }
+
 
 
 

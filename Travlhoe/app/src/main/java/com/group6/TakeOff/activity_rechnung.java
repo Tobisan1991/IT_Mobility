@@ -39,7 +39,7 @@ public class activity_rechnung extends AppCompatActivity {
         int i = 0;
         if(data.getCount() != 0){
             while(data.moveToNext()){
-                Trip project = new Trip(data.getString(0),data.getString(1),data.getString(2),data.getString(3));
+                Trip project = new Trip(data.getString(0),data.getDouble(1),data.getString(2),data.getString(3));
                 trip.add(i,project);
                 i++;
             }

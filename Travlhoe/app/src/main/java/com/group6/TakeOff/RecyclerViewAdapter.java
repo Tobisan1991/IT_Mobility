@@ -18,14 +18,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public static class ViewHolder extends RecyclerView.ViewHolder{
 
         public TextView Project;
-        public TextView Name;
+        public TextView Price;
         public TextView DATE_FROM;
         public TextView DATE_TO;
 
         public ViewHolder(final View itemView){
             super (itemView);
             Project = (TextView) itemView.findViewById(R.id.textProject);
-            Name = (TextView) itemView.findViewById(R.id.textName);
+            Price = (TextView) itemView.findViewById(R.id.textName);
             DATE_FROM =  (TextView) itemView.findViewById(R.id.dateFrom);
             DATE_TO =  (TextView) itemView.findViewById(R.id.dateTo);
 
@@ -55,8 +55,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         TextView mProject = holder.Project;
         mProject.setText(trip.getProject());
 
-        TextView mName = holder.Name;
-        mName.setText(trip.getName());
+        TextView mPrice = holder.Price;
+        String stringdouble= Double.toString(trip.getPrice());
+        mPrice.setText(stringdouble);
 
         TextView mDateFrom = holder.DATE_FROM;
         mDateFrom.setText(trip.getDateFrom());

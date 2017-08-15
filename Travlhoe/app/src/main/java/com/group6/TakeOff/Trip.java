@@ -7,21 +7,21 @@ package com.group6.TakeOff;
 public class Trip {
 
     public String Project;
-    public String Name;
+    public double Price;
     public String DateFrom;
     public String DateTo;
 
 
-    public Trip(String mProject, String mName, String mDATE_FROM, String mDATE_TO){
+    public Trip(String mProject, double mPrice, String mDATE_FROM, String mDATE_TO){
         this.Project = mProject;
-        this.Name = mName;
+        this.Price = mPrice;
         this.DateFrom= mDATE_FROM;
         this.DateTo = mDATE_TO;
 
     }
 
     public String getProject(){return Project;}
-    public String getName(){return Name;}
+    public double getPrice(){return Price;}
     public String getDateFrom(){return DateFrom;}
     public String getDateTo(){return DateTo;}
 
