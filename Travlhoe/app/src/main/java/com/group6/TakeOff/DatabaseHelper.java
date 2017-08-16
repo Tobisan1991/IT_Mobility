@@ -57,31 +57,36 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             "(PROJEKT VARCHAR2, " +
             "ENTFERNUNG DOUBLE, " +
             "PRICE DOUBLE, " +
-            "MWST DOUBLE)";
+            "MWST DOUBLE,"+
+            "RECHNUNG_IMG BLOB)";
 
     private static final String CREATE_TABLE_AUTO = "create table " + TABLE_AUTO +
             "(PROJEKT VARCHAR2, " +
             "ENTFERNUNG DOUBLE, " +
             "PRICE DOUBLE, " +
-            "MWST DOUBLE)";
+            "MWST DOUBLE,"+
+            "RECHNUNG_IMG BLOB)";                                                                   //Image
 
     private static final String CREATE_TABLE_FLUGZEUG = "create table " + TABLE_FLUGZEUG +
             "(PROJEKT VARCHAR2, " +
             "ENTFERNUNG DOUBLE, " +
             "PRICE DOUBLE, " +
-            "MWST DOUBLE)";
+            "MWST DOUBLE,"+
+            "RECHNUNG_IMG BLOB)";
 
     private static final String CREATE_TABLE_TAXI= "create table " + TABLE_TAXI +
             "(PROJEKT VARCHAR2, " +
             "ENTFERNUNG DOUBLE, " +
             "PRICE DOUBLE, " +
-            "MWST DOUBLE)";
+            "MWST DOUBLE,"+
+            "RECHNUNG_IMG BLOB)";
 
     private static final String CREATE_TABLE_BAHN = "create table " + TABLE_BAHN +
             "(PROJEKT VARCHAR2, " +
             "ENTFERNUNG DOUBLE, " +
             "PRICE DOUBLE, " +
-            "MWST DOUBLE)";
+            "MWST DOUBLE,"+
+            "RECHNUNG_IMG BLOB)";
 
 
     public DatabaseHelper(Context context) {
@@ -131,13 +136,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
     //+++++++++++++CREATE A UNTERKUNFT++++++++++++//
-    public boolean createUnterkunft(String project, int price, int steuer, int entfernung){
+    public boolean createUnterkunft(String project, int price, int steuer, int entfernung, byte [] image){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(KEY_PROJECT, project);
         contentValues.put(KEY_PRICE, price);
         contentValues.put(KEY_MWST, steuer);
         contentValues.put(KEY_ENTFERNUNG, entfernung);
+        contentValues.put(KEY_RECHNUNG_IMG, image);
         long result = db.insert(TABLE_UNTERKUNFT,null,contentValues);
         if(result == -1)
             return false;
@@ -148,13 +154,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
     //+++++++++++++CREATE A AUTO++++++++++++//
-    public boolean createAuto(String project, int price, int steuer, int entfernung){
+    public boolean createAuto(String project, int price, int steuer, int entfernung, byte [] image){  //Image
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(KEY_PROJECT, project);
         contentValues.put(KEY_PRICE, price);
         contentValues.put(KEY_MWST, steuer);
         contentValues.put(KEY_ENTFERNUNG, entfernung);
+        contentValues.put(KEY_RECHNUNG_IMG, image);                                                    //Image
         long result = db.insert(TABLE_AUTO,null,contentValues);
         if(result == -1)
             return false;
@@ -164,13 +171,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     //+++++++++++++CREATE A FLUGZEUG++++++++++++//
-    public boolean createFlugzeug(String project, int price, int steuer, int entfernung){
+    public boolean createFlugzeug(String project, int price, int steuer, int entfernung, byte [] image){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(KEY_PROJECT, project);
         contentValues.put(KEY_PRICE, price);
         contentValues.put(KEY_MWST, steuer);
         contentValues.put(KEY_ENTFERNUNG, entfernung);
+        contentValues.put(KEY_RECHNUNG_IMG, image);
         long result = db.insert(TABLE_FLUGZEUG,null,contentValues);
         if(result == -1)
             return false;
@@ -180,13 +188,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     //+++++++++++++CREATE A TAXI++++++++++++//
-    public boolean createTaxi(String project, int price, int steuer, int entfernung){
+    public boolean createTaxi(String project, int price, int steuer, int entfernung, byte [] image){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(KEY_PROJECT, project);
         contentValues.put(KEY_PRICE, price);
         contentValues.put(KEY_MWST, steuer);
         contentValues.put(KEY_ENTFERNUNG, entfernung);
+        contentValues.put(KEY_RECHNUNG_IMG, image);
         long result = db.insert(TABLE_TAXI,null,contentValues);
         if(result == -1)
             return false;
@@ -196,13 +205,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     //+++++++++++++CREATE A BAHN++++++++++++//
-    public boolean createBahn(String project, int price, int steuer, int entfernung){
+    public boolean createBahn(String project, int price, int steuer, int entfernung, byte [] image){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(KEY_PROJECT, project);
         contentValues.put(KEY_PRICE, price);
         contentValues.put(KEY_MWST, steuer);
         contentValues.put(KEY_ENTFERNUNG, entfernung);
+        contentValues.put(KEY_RECHNUNG_IMG, image);
         long result = db.insert(TABLE_BAHN,null,contentValues);
         if(result == -1)
             return false;

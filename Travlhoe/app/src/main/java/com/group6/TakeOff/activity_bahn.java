@@ -1,6 +1,8 @@
 package com.group6.TakeOff;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -18,11 +20,13 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -42,6 +46,10 @@ public class activity_bahn extends AppCompatActivity {
     EditText Entfernung,Price,MWST;
     String selectedspinner;
 
+    ImageView imageView5;
+    private static int PICK_IMAGE = 100;
+    Uri imageUri;
+
     private BottomNavigationViewEx bottomNavigationViewEx;
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR2)
@@ -60,6 +68,7 @@ public class activity_bahn extends AppCompatActivity {
         SaveData();
 
         ImageButton btnCamera= (ImageButton)findViewById(R.id.btnCamera);
+        imageView5=(ImageView) findViewById(R.id.imageView5);
 
         StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
         StrictMode.setVmPolicy(builder.build());
@@ -106,7 +115,16 @@ public class activity_bahn extends AppCompatActivity {
             Intent intent2 = new Intent(activity_bahn.this, function_gps.class );
             startActivity(intent2);
         }
+        if(v.getId()==R.id.btnGallery){
+            openGallery();
+        }
     }
+
+    private void openGallery() {
+        Intent Gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        startActivityForResult(Gallery, PICK_IMAGE);
+    }
+
     private String getPictureName() {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd_HHmmss");
         String timestamp = sdf.format(new Date());
@@ -116,6 +134,10 @@ public class activity_bahn extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        if(resultCode==RESULT_OK && requestCode==PICK_IMAGE){
+            imageUri= data.getData();
+            imageView5.setImageURI(imageUri);
+        }
 
         // Bitmap bitmap = (Bitmap)data.getExtras().get("data");
 
@@ -158,6 +180,13 @@ public class activity_bahn extends AppCompatActivity {
 
     }
 
+    public static byte[] imageViewToByte(ImageView image) {
+        Bitmap bitmap = ((BitmapDrawable)image.getDrawable()).getBitmap();
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+        byte[] byteArray = stream.toByteArray();
+        return byteArray;
+    }
     //++++++++++++Save Data++++++//
     public void SaveData(){
         btn_save.setOnClickListener(
@@ -168,7 +197,8 @@ public class activity_bahn extends AppCompatActivity {
                                 selectedspinner,
                                 Integer.valueOf(Price.getText().toString()),
                                 Integer.valueOf(MWST.getText().toString()),
-                                Integer.valueOf(Entfernung.getText().toString())
+                                Integer.valueOf(Entfernung.getText().toString()),
+                                imageViewToByte(imageView5)
                         );
                         if(isInserted=true)
                             Toast.makeText(activity_bahn.this, "Daten gespeichert", Toast.LENGTH_LONG).show();

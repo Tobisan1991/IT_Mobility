@@ -150,5 +150,27 @@
 
     </FrameLayout>
 
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        design:srcCompat="@color/colorPrimary"
+        android:layout_marginLeft="19dp"
+        android:layout_marginStart="19dp"
+        android:layout_alignBottom="@+id/Preis"
+        android:layout_toRightOf="@+id/btnCamera"
+        android:layout_toEndOf="@+id/btnCamera" />
+
+    <ImageButton
+        android:id="@+id/btnGallery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/btnCamera"
+        android:layout_alignLeft="@+id/imageView2"
+        android:layout_alignStart="@+id/imageView2"
+        android:background="@color/colorWhite"
+        android:onClick="onButtonClicked"
+        design:srcCompat="@mipmap/gallerybtn" />
+
 
 </RelativeLayout>

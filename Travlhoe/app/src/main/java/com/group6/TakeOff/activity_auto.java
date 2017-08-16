@@ -1,6 +1,8 @@
 package com.group6.TakeOff;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
@@ -18,18 +20,22 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
 import static com.group6.TakeOff.R.id.bottomNavigationView;
+import static com.group6.TakeOff.R.id.image;
 import static com.group6.TakeOff.R.id.parent;
+import static com.group6.TakeOff.R.id.start;
 
 public class activity_auto extends AppCompatActivity {
 
@@ -39,6 +45,9 @@ public class activity_auto extends AppCompatActivity {
     Spinner ChooseProject;
     EditText Entfernung,Price,MWST;
     String selectedspinner;
+    ImageView imageView2;
+    private static int PICK_IMAGE = 100;
+    Uri imageUri;
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR2)
     @Override
@@ -52,6 +61,8 @@ public class activity_auto extends AppCompatActivity {
         Price = (EditText) findViewById(R.id.Preis);
         MWST = (EditText) findViewById(R.id.MwSt);
         btn_save=(Button) findViewById(R.id.btn_save);
+        //bildanzeigebereich im layout
+        imageView2=(ImageView) findViewById(R.id.imageView2);
         //ChooseProject.setOnItemSelectedListener(this);
         loadSpinnerData();
         SaveData();
@@ -101,7 +112,16 @@ public class activity_auto extends AppCompatActivity {
             Intent intent2 = new Intent(activity_auto.this, function_gps.class );
             startActivity(intent2);
         }
+        if(v.getId()==R.id.btnGallery){
+            openGallery();
+        }
     }
+
+    private void openGallery() {
+        Intent Gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        startActivityForResult(Gallery, PICK_IMAGE);
+    }
+
     private String getPictureName() {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd_HHmmss");
         String timestamp = sdf.format(new Date());
@@ -112,8 +132,12 @@ public class activity_auto extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        if(resultCode==RESULT_OK && requestCode==PICK_IMAGE){
+            imageUri= data.getData();
+            imageView2.setImageURI(imageUri);
+        }
 
-       // Bitmap bitmap = (Bitmap)data.getExtras().get("data");
+        // Bitmap bitmap = (Bitmap)data.getExtras().get("data");
 
         //imageView.setImageBitmap(bitmap);
     }
@@ -149,6 +173,13 @@ public class activity_auto extends AppCompatActivity {
 
     }
 
+    public static byte[] imageViewToByte(ImageView image) {
+        Bitmap bitmap = ((BitmapDrawable)image.getDrawable()).getBitmap();
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+        byte[] byteArray = stream.toByteArray();
+        return byteArray;
+    }
 
 
     //++++++++++++Save Data++++++//
@@ -161,7 +192,8 @@ public class activity_auto extends AppCompatActivity {
                                 selectedspinner,
                                 Integer.valueOf(Price.getText().toString()),
                                 Integer.valueOf(MWST.getText().toString()),
-                                Integer.valueOf(Entfernung.getText().toString())
+                                Integer.valueOf(Entfernung.getText().toString()),
+                                imageViewToByte(imageView2)
                         );
                         if(isInserted=true)
                             Toast.makeText(activity_auto.this, "Daten gespeichert", Toast.LENGTH_LONG).show();
