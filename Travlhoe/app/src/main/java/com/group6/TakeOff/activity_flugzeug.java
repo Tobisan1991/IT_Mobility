@@ -109,7 +109,8 @@ public class activity_flugzeug extends AppCompatActivity{
             startActivityForResult(intent, 0);
         }
         if(v.getId()==R.id.goToGPS) {
-            Intent intent2 = new Intent(activity_flugzeug.this, function_gps.class );
+            //Intent intent2 = new Intent(activity_flugzeug.this, function_gps.class );
+            Intent intent2 = new Intent(activity_flugzeug.this, MapsActivity.class );
             startActivity(intent2);
         }
         if(v.getId()==R.id.btnGallery){

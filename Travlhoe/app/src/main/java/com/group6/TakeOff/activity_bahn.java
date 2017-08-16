@@ -112,7 +112,8 @@ public class activity_bahn extends AppCompatActivity {
             startActivityForResult(intent, 0);
         }
         if(v.getId()==R.id.goToGPS) {
-            Intent intent2 = new Intent(activity_bahn.this, function_gps.class );
+            //Intent intent2 = new Intent(activity_bahn.this, function_gps.class );
+            Intent intent2 = new Intent(activity_bahn.this, MapsActivity.class );
             startActivity(intent2);
         }
         if(v.getId()==R.id.btnGallery){

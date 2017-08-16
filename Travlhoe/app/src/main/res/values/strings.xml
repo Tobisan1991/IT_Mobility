@@ -12,5 +12,6 @@
     <string name="from_date">Von</string>
     <string name="to_date">Bis</string>
     <string name="speichern_button">Speichern</string>
+    <string name="title_activity_maps">Map</string>
 
 </resources>

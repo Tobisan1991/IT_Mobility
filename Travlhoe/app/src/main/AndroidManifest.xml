@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.group6.TakeOff">
+
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -14,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="com.group6.TakeOff.MainActivity"
+            android:name=".MainActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,42 +23,52 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
-            android:name="com.group6.TakeOff.activity_flugzeug"
+            android:name=".activity_flugzeug"
             android:label="@string/title_flugzeug" />
         <activity
-            android:name="com.group6.TakeOff.activity_taxi"
+            android:name=".activity_taxi"
             android:label="@string/title_taxi" />
         <activity
-            android:name="com.group6.TakeOff.activity_bahn"
+            android:name=".activity_bahn"
             android:label="@string/title_zug" />
+        <activity
+            android:name=".activity_transport"
+            android:label="@string/title_transport"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".activity_allgemein"
+            android:label="@string/title_allgemein"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".activity_rechnung"
+            android:label="@string/title_rechnung"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".activity_unterkunft"
+            android:label="@string/title_unterkunft"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".activity_auto"
+            android:label="@string/title_auto"></activity>
+        <activity android:name=".function_gps"></activity>
+        <!--
+             The API key for Google Maps-based APIs is defined as a string resource.
+             (See the file "res/values/google_maps_api.xml").
+             Note that the API key is linked to the encryption key used to sign the APK.
+             You need a different API key for each encryption key, including the release key that is used to
+             sign the APK for publishing.
+             You can define the keys for the debug and release targets in src/debug/ and src/release/. 
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
 
         <activity
-            android:name="com.group6.TakeOff.activity_transport"
-            android:launchMode="singleTop"
-            android:label="@string/title_transport"/>
-        <activity
-            android:name="com.group6.TakeOff.activity_allgemein"
-            android:launchMode="singleTop"
-            android:label="@string/title_allgemein"/>
-        <activity
-            android:name="com.group6.TakeOff.activity_rechnung"
-            android:launchMode="singleTop"
-            android:label="@string/title_rechnung"/>
-        <activity
-            android:name="com.group6.TakeOff.activity_unterkunft"
-            android:launchMode="singleTop"
-            android:label="@string/title_unterkunft"/>
-        <activity
-            android:name="com.group6.TakeOff.activity_auto"
-            android:label="@string/title_auto" >
-        </activity>
-        <activity
-            android:name="com.group6.TakeOff.function_gps">
+            android:name=".MapsActivity"
+            android:label="@string/title_activity_maps"
+            android:exported="true">
         </activity>
     </application>
 
 </manifest>
-
-

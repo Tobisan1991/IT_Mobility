@@ -109,7 +109,8 @@ public class activity_auto extends AppCompatActivity {
             startActivityForResult(intent, 0);
         }
         if(v.getId()==R.id.goToGPS) {
-            Intent intent2 = new Intent(activity_auto.this, function_gps.class );
+            //Intent intent2 = new Intent(activity_auto.this, function_gps.class );
+            Intent intent2 = new Intent(activity_auto.this, MapsActivity.class );
             startActivity(intent2);
         }
         if(v.getId()==R.id.btnGallery){
