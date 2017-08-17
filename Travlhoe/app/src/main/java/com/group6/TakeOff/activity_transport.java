@@ -41,7 +41,8 @@ public class activity_transport extends AppCompatActivity {
     Button btn_save;
     Spinner ChooseProject,ChooseTransport;
     EditText Entfernung,Price,MWST;
-    String selectedspinner;
+    String selectedspinner, selectedTransport;
+
     ImageView imageView2;
     private static int PICK_IMAGE = 100;
     Uri imageUri;
@@ -62,8 +63,9 @@ public class activity_transport extends AppCompatActivity {
         //bildanzeigebereich im layout
         imageView2=(ImageView) findViewById(R.id.imageView2);
         loadProjectSpinnerData();
+        loadTransportSpinnerData();
         SaveData();
-        ImageButton btnCamera= (ImageButton)findViewById(R.id.btnCamera);
+        //ImageButton btnCamera= (ImageButton)findViewById(R.id.btnCamera);
 
         StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
         StrictMode.setVmPolicy(builder.build());
@@ -173,37 +175,38 @@ public class activity_transport extends AppCompatActivity {
 
 
 
-    /*private void loadTransportSpinnerData() {
-        // database handler
-        DatabaseHelper db = new DatabaseHelper (getApplicationContext());
+    private void loadTransportSpinnerData() {
+        // Spinner method to read the on selected value
+        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, new String[] {
+                new String("Auto"),
+                new String("Flugzeug"),
+                new String("Taxi"),
+                new String("Bahn")});
+        ChooseTransport.setAdapter(spinnerArrayAdapter);
 
-        // Spinner Drop down elements
-        List<String> projects = db.getAllProjects();
 
         // Creating adapter for spinner
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, projects);
+        //ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, projects);
 
         // Drop down layout style - list view with radio button
-        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        ChooseProject.setPrompt("Projekt auswählen");
+        spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ChooseTransport.setPrompt("Transport auswählen");
 
         // attaching data adapter to spinner
-        ChooseProject.setAdapter(dataAdapter);
+        ChooseTransport.setAdapter(spinnerArrayAdapter);
 
         //Listener für den Projekt Spinner damit ich den Wert abspeichern kann
-        ChooseProject.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        ChooseTransport.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
                 //selectedspinner =String.ValueOf(parent.getItemAtPosition(pos));
-                selectedspinner = (String) ChooseProject.getSelectedItem();
+                selectedTransport = (String) ChooseTransport.getSelectedItem();
             }
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
 
-    }*/
-
-
-
+    }
 
 
 
@@ -224,6 +227,7 @@ public class activity_transport extends AppCompatActivity {
                     public void onClick(View v) {
                         boolean isInserted = myDb.createTransport(
                                 selectedspinner,
+                                selectedTransport,
                                 Integer.valueOf(Price.getText().toString()),
                                 Integer.valueOf(MWST.getText().toString()),
                                 Integer.valueOf(Entfernung.getText().toString()),
