@@ -252,16 +252,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public Cursor getListContents() {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor data = db.rawQuery("SELECT " + TABLE_PROJEKT + "." + KEY_PROJECT + " , " +
-                "sum( "+ "IFNULL(" + TABLE_AUTO + "." + KEY_PRICE + ",0)  +" +
-                "IFNULL(" + TABLE_FLUGZEUG + "." + KEY_PRICE + ",0) +" +
-                "IFNULL(" + TABLE_BAHN + "." + KEY_PRICE +  ",0) +" +
-                "IFNULL(" + TABLE_TAXI + "." + KEY_PRICE + ",0)"  +
-                //TABLE_UNTERKUNFT + "." + KEY_PRICE +
+                "sum( "+ "IFNULL(" + TABLE_AUTO + "." + KEY_PRICE + ",0)  + " +
+                "IFNULL(" + TABLE_FLUGZEUG + "." + KEY_PRICE + ",0) + " +
+                "IFNULL(" + TABLE_BAHN + "." + KEY_PRICE +  ",0) + " +
+                "IFNULL(" + TABLE_TAXI + "." + KEY_PRICE + ",0) + "  +
+                "IFNULL(" + TABLE_UNTERKUNFT + "." + KEY_PRICE + ",0)"  +
                 ")" +
                 " , " + KEY_DATE_FROM + " , " + KEY_DATE_TO + " FROM " + TABLE_PROJEKT +
                 " left outer join " + TABLE_AUTO + " on " + "(" + TABLE_PROJEKT  + "." + KEY_PROJECT + "=" + TABLE_AUTO + "." + KEY_PROJECT + " ) " +
                 " left outer join " + TABLE_FLUGZEUG + " on " + "(" + TABLE_PROJEKT + "." + KEY_PROJECT + "=" +TABLE_FLUGZEUG  + "." + KEY_PROJECT + " ) " +
-                //" left outer join " + TABLE_UNTERKUNFT + " on " + "(" + TABLE_PROJEKT + "." + KEY_PROJECT + "=" + TABLE_UNTERKUNFT + "." + KEY_PROJECT + " ) " +
+                " left outer join " + TABLE_UNTERKUNFT + " on " + "(" + TABLE_PROJEKT + "." + KEY_PROJECT + "=" + TABLE_UNTERKUNFT + "." + KEY_PROJECT + " ) " +
                 " left outer join " + TABLE_TAXI + " on " + "(" + TABLE_PROJEKT + "." + KEY_PROJECT + "=" + TABLE_TAXI + "." + KEY_PROJECT + " ) " +
                 " left outer join " + TABLE_BAHN + " on " + "(" + TABLE_PROJEKT + "." + KEY_PROJECT + "=" + TABLE_BAHN + "." + KEY_PROJECT + " ) " +
                 "group by " + TABLE_PROJEKT + "." + KEY_PROJECT + "," + TABLE_PROJEKT + "." + KEY_DATE_FROM + "," + TABLE_PROJEKT + "." + KEY_DATE_TO, null);
