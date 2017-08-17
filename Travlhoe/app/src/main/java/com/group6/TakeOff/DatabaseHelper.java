@@ -254,7 +254,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public Cursor getListContents() {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor data = db.rawQuery("SELECT " + TABLE_PROJEKT + "." + KEY_PROJECT + " , " +
-                "sum( "+ "IFNULL(" + TABLE_TRANSPORT + "." + KEY_PRICE + ",0)  + " +  "IFNULL(" + TABLE_UNTERKUNFT + "." + KEY_PRICE + ",0)) - sum(" + TABLE_PROJEKT  + "."  + KEY_DATE_TO + "-"  + TABLE_PROJEKT  + "."  + KEY_DATE_FROM + "-1)*24, "
+                "sum( "+ "IFNULL(" + TABLE_TRANSPORT + "." + KEY_PRICE + ",0)  + " +  "IFNULL(" + TABLE_UNTERKUNFT + "." + KEY_PRICE + ",0)) + sum(" + TABLE_PROJEKT  + "."  + KEY_DATE_TO + "-"  + TABLE_PROJEKT  + "."  + KEY_DATE_FROM + "-1)*24, "
                 + KEY_DATE_FROM + " , " + KEY_DATE_TO + " FROM " + TABLE_PROJEKT +
                 " left outer join " + TABLE_TRANSPORT + " on " + "(" + TABLE_PROJEKT  + "." + KEY_PROJECT + "=" + TABLE_TRANSPORT + "." + KEY_PROJECT + " ) " +
                 " left outer join " + TABLE_UNTERKUNFT + " on " + "(" + TABLE_PROJEKT + "." + KEY_PROJECT + "=" + TABLE_UNTERKUNFT + "." + KEY_PROJECT + " ) " +
