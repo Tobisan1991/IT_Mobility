@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="10dp"
-    android:background="@drawable/mybuttontransportpage">
+    android:background="@drawable/backgroundtransport">
 
 
     <LinearLayout
@@ -19,9 +19,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:paddingBottom="50sp"
-            android:layout_weight="1">
-        </LinearLayout>
+            android:layout_weight="1"
+            android:paddingBottom="50sp"></LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -127,7 +126,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:itemBackground="@color/colorWhite"
-                design:menu="@menu/navigation"> </com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx>
+                design:menu="@menu/navigation"></com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx>
 
         </FrameLayout>
     </LinearLayout>
