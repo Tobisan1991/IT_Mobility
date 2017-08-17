@@ -24,19 +24,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity_flugzeug"
-            android:label="@string/title_flugzeug" />
-        <activity
-            android:name=".activity_taxi"
-            android:label="@string/title_taxi" />
-        <activity
-            android:name=".activity_bahn"
-            android:label="@string/title_zug" />
-        <activity
-            android:name=".activity_transport"
-            android:label="@string/title_transport"
-            android:launchMode="singleTop" />
-        <activity
             android:name=".activity_allgemein"
             android:label="@string/title_allgemein"
             android:launchMode="singleTop" />
@@ -49,7 +36,7 @@
             android:label="@string/title_unterkunft"
             android:launchMode="singleTop" />
         <activity
-            android:name=".activity_auto"
+            android:name=".activity_transport"
             android:label="@string/title_auto"></activity>
         <activity android:name=".function_gps"></activity>
         <!--

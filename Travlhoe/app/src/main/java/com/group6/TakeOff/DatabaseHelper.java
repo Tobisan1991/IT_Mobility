@@ -21,10 +21,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     //Table Names
     public static final String TABLE_PROJEKT = "create_project";
     public static final String TABLE_UNTERKUNFT = "unterkunft";
-    public static final String TABLE_AUTO = "auto";
-    public static final String TABLE_FLUGZEUG = "flugzeug";
-    public static final String TABLE_TAXI = "taxi";
-    public static final String TABLE_BAHN  = "bahn";
+    public static final String TABLE_TRANSPORT = "transport";
 
 
     //Common column names
@@ -39,6 +36,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     //Expenses column names
     public static final String KEY_ENTFERNUNG= "ENTFERNUNG";
+    public static final String KEY_TRANSPORT= "TRANSPORT";
     public static final String KEY_PRICE= "PRICE";
     public static final String KEY_MWST= "MWST";
     public static final String KEY_RECHNUNG_IMG= "RECHNUNG_IMG";
@@ -60,14 +58,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             "MWST DOUBLE,"+
             "RECHNUNG_IMG BLOB)";
 
-    private static final String CREATE_TABLE_AUTO = "create table " + TABLE_AUTO +
+    private static final String CREATE_TABLE_TRANSPORT = "create table " + TABLE_TRANSPORT +
             "(PROJEKT VARCHAR2, " +
+            "TRANSPORT VARCHAR2, " +
             "ENTFERNUNG DOUBLE, " +
             "PRICE DOUBLE, " +
             "MWST DOUBLE, "+
             "RECHNUNG_IMG BLOB)";                                                                   //Image
 
-    private static final String CREATE_TABLE_FLUGZEUG = "create table " + TABLE_FLUGZEUG +
+    /*private static final String CREATE_TABLE_FLUGZEUG = "create table " + TABLE_FLUGZEUG +
             "(PROJEKT VARCHAR2, " +
             "ENTFERNUNG DOUBLE, " +
             "PRICE DOUBLE, " +
@@ -86,7 +85,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             "ENTFERNUNG DOUBLE, " +
             "PRICE DOUBLE, " +
             "MWST DOUBLE,"+
-            "RECHNUNG_IMG BLOB)";
+            "RECHNUNG_IMG BLOB)";*/
 
 
     public DatabaseHelper(Context context) {
@@ -98,20 +97,22 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CREATE_TABLE_PROJEKT);
         db.execSQL(CREATE_TABLE_UNTERKUNFT);
-        db.execSQL(CREATE_TABLE_AUTO);
+        db.execSQL(CREATE_TABLE_TRANSPORT);
+        /*db.execSQL(CREATE_TABLE_AUTO);
         db.execSQL(CREATE_TABLE_FLUGZEUG);
         db.execSQL(CREATE_TABLE_TAXI);
-        db.execSQL(CREATE_TABLE_BAHN);
+        db.execSQL(CREATE_TABLE_BAHN);*/
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_PROJEKT);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_UNTERKUNFT);
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_AUTO);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_TRANSPORT);
+        /*db.execSQL("DROP TABLE IF EXISTS " + TABLE_AUTO);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_FLUGZEUG);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_TAXI);
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_BAHN);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_BAHN);*/
         onCreate(db);
     }
 
@@ -153,8 +154,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    //+++++++++++++CREATE A AUTO++++++++++++//
-    public boolean createAuto(String project, int price, int steuer, int entfernung, byte[] image){  //Image
+    //+++++++++++++CREATE A TRANSPORT++++++++++++//
+    public boolean createTransport(String project, int price, int steuer, int entfernung, byte[] image){  //Image
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(KEY_PROJECT, project);
@@ -162,7 +163,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(KEY_MWST, steuer);
         contentValues.put(KEY_ENTFERNUNG, entfernung);
         contentValues.put(KEY_RECHNUNG_IMG, image);                                                    //Image
-        long result = db.insert(TABLE_AUTO,null,contentValues);
+        long result = db.insert(TABLE_TRANSPORT,null,contentValues);
         if(result == -1)
             return false;
         else
@@ -172,7 +173,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
 
-    //+++++++++++++CREATE A FLUGZEUG++++++++++++//
+    /*//+++++++++++++CREATE A FLUGZEUG++++++++++++//
     public boolean createFlugzeug(String project, int price, int steuer, int entfernung, byte [] image){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -187,9 +188,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         else
             return true;
 
-    }
+    }*/
 
-    //+++++++++++++CREATE A TAXI++++++++++++//
+    /*//+++++++++++++CREATE A TAXI++++++++++++//
     public boolean createTaxi(String project, int price, int steuer, int entfernung, byte [] image){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -204,9 +205,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         else
             return true;
 
-    }
+    }*/
 
-    //+++++++++++++CREATE A BAHN++++++++++++//
+    /*//+++++++++++++CREATE A BAHN++++++++++++//
     public boolean createBahn(String project, int price, int steuer, int entfernung, byte [] image){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -221,7 +222,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         else
             return true;
 
-    }
+    }*/
 
     //Getting values from spinner (Drop-Down)
     public List<String> getAllProjects(){
@@ -252,18 +253,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public Cursor getListContents() {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor data = db.rawQuery("SELECT " + TABLE_PROJEKT + "." + KEY_PROJECT + " , " +
-                "sum( "+ "IFNULL(" + TABLE_AUTO + "." + KEY_PRICE + ",0)  + " +
-                "IFNULL(" + TABLE_FLUGZEUG + "." + KEY_PRICE + ",0) + " +
-                "IFNULL(" + TABLE_BAHN + "." + KEY_PRICE +  ",0) + " +
-                "IFNULL(" + TABLE_TAXI + "." + KEY_PRICE + ",0) + "  +
+                "sum( "+ "IFNULL(" + TABLE_TRANSPORT + "." + KEY_PRICE + ",0)  + " +
                 "IFNULL(" + TABLE_UNTERKUNFT + "." + KEY_PRICE + ",0)"  +
                 ")" +
                 " , " + KEY_DATE_FROM + " , " + KEY_DATE_TO + " FROM " + TABLE_PROJEKT +
-                " left outer join " + TABLE_AUTO + " on " + "(" + TABLE_PROJEKT  + "." + KEY_PROJECT + "=" + TABLE_AUTO + "." + KEY_PROJECT + " ) " +
-                " left outer join " + TABLE_FLUGZEUG + " on " + "(" + TABLE_PROJEKT + "." + KEY_PROJECT + "=" +TABLE_FLUGZEUG  + "." + KEY_PROJECT + " ) " +
+                " left outer join " + TABLE_TRANSPORT + " on " + "(" + TABLE_PROJEKT  + "." + KEY_PROJECT + "=" + TABLE_TRANSPORT + "." + KEY_PROJECT + " ) " +
                 " left outer join " + TABLE_UNTERKUNFT + " on " + "(" + TABLE_PROJEKT + "." + KEY_PROJECT + "=" + TABLE_UNTERKUNFT + "." + KEY_PROJECT + " ) " +
-                " left outer join " + TABLE_TAXI + " on " + "(" + TABLE_PROJEKT + "." + KEY_PROJECT + "=" + TABLE_TAXI + "." + KEY_PROJECT + " ) " +
-                " left outer join " + TABLE_BAHN + " on " + "(" + TABLE_PROJEKT + "." + KEY_PROJECT + "=" + TABLE_BAHN + "." + KEY_PROJECT + " ) " +
                 "group by " + TABLE_PROJEKT + "." + KEY_PROJECT + "," + TABLE_PROJEKT + "." + KEY_DATE_FROM + "," + TABLE_PROJEKT + "." + KEY_DATE_TO, null);
         return data;
     }
