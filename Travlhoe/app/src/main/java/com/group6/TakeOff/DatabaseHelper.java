@@ -64,7 +64,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             "(PROJEKT VARCHAR2, " +
             "ENTFERNUNG DOUBLE, " +
             "PRICE DOUBLE, " +
-            "MWST DOUBLE,"+
+            "MWST DOUBLE, "+
             "RECHNUNG_IMG BLOB)";                                                                   //Image
 
     private static final String CREATE_TABLE_FLUGZEUG = "create table " + TABLE_FLUGZEUG +
@@ -154,7 +154,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
     //+++++++++++++CREATE A AUTO++++++++++++//
-    public boolean createAuto(String project, int price, int steuer, int entfernung, byte [] image){  //Image
+    public boolean createAuto(String project, int price, int steuer, int entfernung, byte[] image){  //Image
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(KEY_PROJECT, project);
@@ -169,6 +169,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return true;
 
     }
+
+
 
     //+++++++++++++CREATE A FLUGZEUG++++++++++++//
     public boolean createFlugzeug(String project, int price, int steuer, int entfernung, byte [] image){
