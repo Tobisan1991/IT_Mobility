@@ -155,9 +155,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
     //+++++++++++++CREATE A TRANSPORT++++++++++++//
-    public boolean createTransport(String project, int price, int steuer, int entfernung, byte[] image){  //Image
+    public boolean createTransport(String transport, String project, int price, int steuer, int entfernung, byte[] image){  //Image
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
+        contentValues.put(KEY_TRANSPORT, transport);
         contentValues.put(KEY_PROJECT, project);
         contentValues.put(KEY_PRICE, price);
         contentValues.put(KEY_MWST, steuer);
