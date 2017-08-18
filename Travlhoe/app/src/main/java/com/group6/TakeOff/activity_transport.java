@@ -244,6 +244,10 @@ public class activity_transport extends AppCompatActivity {
                         else
                             Toast.makeText(activity_transport.this, "Daten nicht gespeichert", Toast.LENGTH_LONG).show();
 
+                        Price.setText("");
+                        Entfernung.setText("");
+                        MWST.setText("");
+
                     }
                 }
         );

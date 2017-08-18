@@ -209,6 +209,10 @@
                             else
                                 Toast.makeText(activity_unterkunft.this, "Daten nicht gespeichert", Toast.LENGTH_LONG).show();
 
+                            Price.setText("");
+                            Entfernung.setText("");
+                            MWST.setText("");
+
                         }
                     }
             );

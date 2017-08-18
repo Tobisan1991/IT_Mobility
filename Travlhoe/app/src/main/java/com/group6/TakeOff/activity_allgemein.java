@@ -109,6 +109,13 @@ public class activity_allgemein extends AppCompatActivity implements View.OnClic
                         else
                             Toast.makeText(activity_allgemein.this, "Daten nicht gespeichert", Toast.LENGTH_LONG).show();
 
+                        CreateProject.setText("");
+                        eTxt_DatumVon.setText("");
+                        eTxt_DatumBis.setText("");
+                        Nachname.setText("");
+                        Vorname.setText("");
+                        Kostenstelle.setText("");
+
                     }
                 }
         );
