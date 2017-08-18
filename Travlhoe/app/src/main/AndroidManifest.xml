@@ -28,6 +28,10 @@
             android:label="@string/title_allgemein"
             android:launchMode="singleTop" />
         <activity
+            android:name=".activity_projektDetails"
+            android:label="ProjektDetails"
+            android:launchMode="singleTop" />
+        <activity
             android:name=".activity_rechnung"
             android:label="@string/title_rechnung"
             android:launchMode="singleTop" />

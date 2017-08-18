@@ -2,6 +2,7 @@ package com.group6.TakeOff;
 
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Movie;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -9,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
@@ -35,7 +37,7 @@ public class activity_rechnung extends AppCompatActivity {
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
 
         Cursor data = myDB.getListContents();
-        List<Trip> trip = new ArrayList<>();
+        final List<Trip> trip = new ArrayList<>();
         int i = 0;
         if(data.getCount() != 0){
             while(data.moveToNext()){
@@ -48,8 +50,21 @@ public class activity_rechnung extends AppCompatActivity {
             recyclerView.setAdapter(adapter);
             recyclerView.setLayoutManager((new LinearLayoutManager(this)));
         }else{
-            Toast.makeText(activity_rechnung.this, "No data in DB", Toast.LENGTH_LONG).show();
+            Toast.makeText(activity_rechnung.this, "Bisher keine Projekte vorhanden", Toast.LENGTH_LONG).show();
         }
+
+        recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getApplicationContext(), recyclerView, new RecyclerTouchListener.ClickListener() {
+            @Override
+            public void onClick(View view, int position) {
+
+                startActivity(new Intent(activity_rechnung.this, activity_projektDetails.class));
+            }
+
+            @Override
+            public void onLongClick(View view, int position) {
+
+            }
+        }));
 
         bottomNavigationViewEx = (BottomNavigationViewEx) findViewById(R.id.bottomNavigationView);
 
@@ -74,4 +89,8 @@ public class activity_rechnung extends AppCompatActivity {
         bottomNavigationViewEx.setSelectedItemId(R.id.menu_rechnung);
         BottomNavigationViewHelper.setupBottomNavigationView(bottomNavigationViewEx);
     }
+
+
+
+
 }
