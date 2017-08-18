@@ -33,6 +33,7 @@ import java.util.List;
 
 import static com.group6.TakeOff.R.id.ChooseTransport;
 import static com.group6.TakeOff.R.id.bottomNavigationView;
+import static com.group6.TakeOff.R.id.parent;
 
 public class activity_transport extends AppCompatActivity {
 
@@ -56,6 +57,14 @@ public class activity_transport extends AppCompatActivity {
 
         ChooseProject = (Spinner) findViewById(R.id.ChooseProject);
         ChooseTransport = (Spinner) findViewById(R.id.ChooseTransport);
+
+
+
+        //ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.transport, android.R.layout.simple_spinner_dropdown_item);
+        //hooseTransport.setAdapter(adapter);
+        //ChooseTransport.setOnItemSelectedListener(this);
+
+
         Entfernung = (EditText) findViewById(R.id.Entfernung);
         Price = (EditText) findViewById(R.id.Preis);
         MWST = (EditText) findViewById(R.id.MwSt);
@@ -65,7 +74,6 @@ public class activity_transport extends AppCompatActivity {
         loadProjectSpinnerData();
         loadTransportSpinnerData();
         SaveData();
-        //ImageButton btnCamera= (ImageButton)findViewById(R.id.btnCamera);
 
         StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
         StrictMode.setVmPolicy(builder.build());
@@ -142,6 +150,15 @@ public class activity_transport extends AppCompatActivity {
         //imageView.setImageBitmap(bitmap);
     }
 
+
+    public void onItemSelected(AdapterView<?> parent, View v, int position, long id ){
+        selectedTransport = (String) ChooseTransport.getSelectedItem();
+    }
+
+    public void onNothingSelected(AdapterView<?> parent){
+        Toast.makeText(this, "Choose Countries :", Toast.LENGTH_SHORT).show();
+    }
+
     //+++++++++++++++Function to load the spinner data from SQLite database++++++++++//
 
     private void loadProjectSpinnerData() {
@@ -164,8 +181,8 @@ public class activity_transport extends AppCompatActivity {
         //Listener für den Projekt Spinner damit ich den Wert abspeichern kann
         ChooseProject.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-                //selectedspinner =String.ValueOf(parent.getItemAtPosition(pos));
-                selectedspinner = (String) ChooseProject.getSelectedItem();
+                    selectedspinner = (String) ChooseProject.getSelectedItem();
+
             }
             public void onNothingSelected(AdapterView<?> parent) {
             }
@@ -175,34 +192,23 @@ public class activity_transport extends AppCompatActivity {
 
 
 
-    private void loadTransportSpinnerData() {
-        // Spinner method to read the on selected value
-        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item, new String[] {
-                new String("Auto"),
-                new String("Flugzeug"),
-                new String("Taxi"),
-                new String("Bahn")});
-        ChooseTransport.setAdapter(spinnerArrayAdapter);
+    private void loadTransportSpinnerData(){
 
 
-        // Creating adapter for spinner
-        //ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, projects);
-
-        // Drop down layout style - list view with radio button
+        ArrayAdapter<CharSequence> spinnerArrayAdapter = ArrayAdapter.createFromResource(this, R.array.transport, android.R.layout.simple_spinner_dropdown_item);
         spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         ChooseTransport.setPrompt("Transport auswählen");
-
-        // attaching data adapter to spinner
         ChooseTransport.setAdapter(spinnerArrayAdapter);
 
-        //Listener für den Projekt Spinner damit ich den Wert abspeichern kann
         ChooseTransport.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-                //selectedspinner =String.ValueOf(parent.getItemAtPosition(pos));
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 selectedTransport = (String) ChooseTransport.getSelectedItem();
             }
-            public void onNothingSelected(AdapterView<?> parent) {
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
             }
         });
 
@@ -226,8 +232,8 @@ public class activity_transport extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         boolean isInserted = myDb.createTransport(
-                                selectedspinner,
                                 selectedTransport,
+                                selectedspinner,
                                 Integer.valueOf(Price.getText().toString()),
                                 Integer.valueOf(MWST.getText().toString()),
                                 Integer.valueOf(Entfernung.getText().toString()),

@@ -13,13 +13,11 @@
     <string name="to_date">Bis</string>
     <string name="speichern_button">Speichern</string>
     <string name="title_activity_maps">Map</string>
-    <string-array name="array_name">
-        <item> </item>
+    <string-array name="transport">
         <item>Auto</item>
         <item>Flugzeug</item>
         <item>Bahn</item>
         <item>Taxi</item>
-        <item>Sonstiges</item>
     </string-array>
 
 </resources>
