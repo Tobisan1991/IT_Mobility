@@ -1,6 +1,7 @@
 package com.group6.TakeOff;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
@@ -52,6 +53,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             public static final int REQUEST_LOCATION_CODE=99;
             double latitude, longtitude;
             double end_latitude, end_longtitude;
+            float f, g;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -109,9 +111,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                             MarkerOptions markerOptions = new MarkerOptions();
                             markerOptions.position(latLng);
                             markerOptions.title(location);
-                            mMap.addMarker(markerOptions);
+
                             mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-                            mMap.animateCamera(CameraUpdateFactory.zoomTo(10));
+                            mMap.animateCamera(CameraUpdateFactory.zoomTo(14));
+
+                            float searchResult [] = new float[10];
+                            Location.distanceBetween(latitude,longtitude,latLng.latitude,latLng.longitude,searchResult);
+                            markerOptions.snippet("Distance "+searchResult[0]);
+                            g=searchResult[0];
+                            mMap.addMarker(markerOptions);
                         }
                     }
                 } catch (IOException e) {
@@ -129,8 +137,30 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             float result [] = new float[10];
             Location.distanceBetween(latitude, longtitude,end_latitude,end_longtitude,result);
             markerOptions.snippet("Distance "+result[0]);
+            f= result[0];
             mMap.addMarker(markerOptions);
+
         }
+        if(v.getId()==R.id.bReturn){
+            if(f!=0) {
+                String s = String.valueOf(f);
+                Intent intentTransport = new Intent(MapsActivity.this, activity_transport.class);
+                intentTransport.putExtra("e1", s);
+                startActivity(intentTransport);
+            }else if(g!=0){
+                String s = String.valueOf(g);
+                Intent intentTransport = new Intent(MapsActivity.this, activity_transport.class);
+                intentTransport.putExtra("e1", s);
+                startActivity(intentTransport);
+            }else if(f==0 && g== 0){
+                Intent intentTransport = new Intent(MapsActivity.this, activity_transport.class);
+                startActivity(intentTransport);
+            }
+
+
+        }
+
+
 
     }
 

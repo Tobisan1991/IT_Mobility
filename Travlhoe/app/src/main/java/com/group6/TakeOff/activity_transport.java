@@ -32,6 +32,7 @@ import java.util.Date;
 import java.util.List;
 
 import static com.group6.TakeOff.R.id.ChooseTransport;
+import static com.group6.TakeOff.R.id.Entfernung;
 import static com.group6.TakeOff.R.id.bottomNavigationView;
 import static com.group6.TakeOff.R.id.parent;
 
@@ -43,6 +44,7 @@ public class activity_transport extends AppCompatActivity {
     Spinner ChooseProject,ChooseTransport;
     EditText Entfernung,Price,MWST;
     String selectedspinner, selectedTransport;
+    public String e1;
 
     ImageView imageView2;
     private static int PICK_IMAGE = 100;
@@ -64,8 +66,12 @@ public class activity_transport extends AppCompatActivity {
         //hooseTransport.setAdapter(adapter);
         //ChooseTransport.setOnItemSelectedListener(this);
 
-
+        //Set Text Field of Entfernung
         Entfernung = (EditText) findViewById(R.id.Entfernung);
+        Intent into = getIntent();
+        e1=into.getStringExtra("e1");
+        Entfernung.setText(e1);
+
         Price = (EditText) findViewById(R.id.Preis);
         MWST = (EditText) findViewById(R.id.MwSt);
         btn_save=(Button) findViewById(R.id.btn_save);
