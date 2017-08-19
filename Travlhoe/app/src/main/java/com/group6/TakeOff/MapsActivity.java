@@ -39,7 +39,9 @@ import java.util.List;
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback,
         GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener,
-        LocationListener
+        LocationListener,
+        GoogleMap.OnMarkerClickListener,
+        GoogleMap.OnMarkerDragListener
         {
 
     private GoogleMap mMap;
@@ -48,6 +50,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             private Location lastLocation;
             private Marker currentLocationMarker;
             public static final int REQUEST_LOCATION_CODE=99;
+            double latitude, longtitude;
+            double end_latitude, end_longtitude;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -115,24 +119,19 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 }
             }
         }
-        /*
         if(v.getId()==R.id.bTo){
             mMap.clear();
-            MarkerOptions markerOptions= new MarkerOptions();
-            markerOptions.position(new LatLng(end_latidude, end_longitude));
+            MarkerOptions markerOptions = new MarkerOptions();
+            markerOptions.position(new LatLng(end_latitude, end_longtitude));
             markerOptions.title("Destination");
             markerOptions.draggable(true);
 
             float result [] = new float[10];
-
-            Location.distanceBetween(latitude, longitude, end_latidude, end_longitude, result);
-            markerOptions.snippet("distance "+ result[0]);
+            Location.distanceBetween(latitude, longtitude,end_latitude,end_longtitude,result);
+            markerOptions.snippet("Distance "+result[0]);
             mMap.addMarker(markerOptions);
+        }
 
-
-
-
-        }*/
     }
 
 
@@ -161,7 +160,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             buildGoogleApiClient();
             mMap.setMyLocationEnabled(true);
             }
-
+        mMap.setOnMarkerDragListener(this);
+        mMap.setOnMarkerClickListener(this);
     }
 
     protected synchronized void buildGoogleApiClient(){
@@ -178,6 +178,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
             @Override
             public void onLocationChanged(Location location) {
+                latitude=location.getLatitude();
+                longtitude=location.getLongitude();
                 lastLocation=location;
                 if(currentLocationMarker!=null){
                     currentLocationMarker.remove();
@@ -239,5 +241,27 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             @Override
             public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
 
+            }
+
+            @Override
+            public boolean onMarkerClick(Marker marker) {
+                marker.setDraggable(true);
+                return false;
+            }
+
+            @Override
+            public void onMarkerDragStart(Marker marker) {
+
+            }
+
+            @Override
+            public void onMarkerDrag(Marker marker) {
+
+            }
+
+            @Override
+            public void onMarkerDragEnd(Marker marker) {
+                end_latitude=marker.getPosition().latitude;
+                end_longtitude=marker.getPosition().longitude;
             }
         }
