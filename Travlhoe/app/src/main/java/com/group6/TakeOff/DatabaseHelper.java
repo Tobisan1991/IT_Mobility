@@ -40,6 +40,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String KEY_TRANSPORT= "TRANSPORT";
     public static final String KEY_PRICE= "PRICE";
     public static final String KEY_MWST= "MWST";
+    public static final String KEY_KOMMENTAR= "KOMMENTAR";
     public static final String KEY_RECHNUNG_IMG= "RECHNUNG_IMG";
 
 
@@ -55,7 +56,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final String CREATE_TABLE_UNTERKUNFT = "create table " + TABLE_UNTERKUNFT +
             "(PROJEKT VARCHAR2, " +
-            "ENTFERNUNG DOUBLE, " +
+            "KOMMENTAR VARCHAR2, " +
             "PRICE DOUBLE, " +
             "MWST DOUBLE,"+
             "RECHNUNG_IMG BLOB)";
@@ -140,13 +141,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
     //+++++++++++++CREATE A UNTERKUNFT++++++++++++//
-    public boolean createUnterkunft(String project, int price, int steuer, int entfernung, byte [] image){
+    public boolean createUnterkunft(String project, int price, int steuer, String kommentar, byte [] image){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(KEY_PROJECT, project);
         contentValues.put(KEY_PRICE, price);
         contentValues.put(KEY_MWST, steuer);
-        contentValues.put(KEY_ENTFERNUNG, entfernung);
+        contentValues.put(KEY_KOMMENTAR, kommentar);
         contentValues.put(KEY_RECHNUNG_IMG, image);
         long result = db.insert(TABLE_UNTERKUNFT,null,contentValues);
         if(result == -1)

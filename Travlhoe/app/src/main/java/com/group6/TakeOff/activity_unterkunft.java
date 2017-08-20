@@ -40,7 +40,7 @@
         DatabaseHelper myDb;
         Button btn_save;
         Spinner ChooseProject;
-        EditText Entfernung,Price,MWST;
+        EditText Kommentar,Price,MWST;
         String selectedspinner;
 
         ImageView imageView6;
@@ -57,7 +57,7 @@
             myDb = new DatabaseHelper(this);
 
             ChooseProject = (Spinner) findViewById(R.id.ChooseProject);
-            Entfernung = (EditText) findViewById(R.id.Entfernung);
+            Kommentar = (EditText) findViewById(R.id.Kommentar);
             Price = (EditText) findViewById(R.id.Preis);
             MWST = (EditText) findViewById(R.id.MwSt);
             btn_save=(Button) findViewById(R.id.btn_save);
@@ -201,7 +201,7 @@
                                     selectedspinner,
                                     Integer.valueOf(Price.getText().toString()),
                                     Integer.valueOf(MWST.getText().toString()),
-                                    Integer.valueOf(Entfernung.getText().toString()),
+                                    Kommentar.getText().toString(),
                                     imageViewToByte(imageView6)
                             );
                             if(isInserted=true)
@@ -210,7 +210,7 @@
                                 Toast.makeText(activity_unterkunft.this, "Daten nicht gespeichert", Toast.LENGTH_LONG).show();
 
                             Price.setText("");
-                            Entfernung.setText("");
+                            Kommentar.setText("");
                             MWST.setText("");
 
                         }

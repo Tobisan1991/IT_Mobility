@@ -39,7 +39,7 @@
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
-        android:layout_width="fill_parent"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:theme="@style/TextLabel"
         android:id="@+id/textInputMwst"
@@ -56,35 +56,22 @@
     </android.support.design.widget.TextInputLayout>
 
 
-
     <android.support.design.widget.TextInputLayout
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:theme="@style/TextLabel"
-        android:id="@+id/textInputEntfernung"
+        android:id="@+id/textInputKommentar"
         android:layout_below="@+id/textInputMwst">
 
         <android.support.v7.widget.AppCompatEditText
-            android:id="@+id/Entfernung"
+            android:id="@+id/Kommentar"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/txtMwst"
-            android:hint="Entfernung">
+            android:layout_below="@+id/txtKommentar"
+            android:hint="Kommentar">
         </android.support.v7.widget.AppCompatEditText>
+
     </android.support.design.widget.TextInputLayout>
-    <ImageButton
-        android:id="@+id/goToGPS"
-        style="@android:style/Widget.DeviceDefault.ImageButton"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_weight="1"
-        android:background="@color/colorWhite"
-        android:fadingEdge="none|horizontal"
-        android:onClick="onButtonClicked"
-        design:srcCompat="@android:drawable/ic_menu_mylocation"
-        android:layout_alignBottom="@+id/textInputEntfernung"
-        android:layout_toRightOf="@+id/textInputEntfernung"
-        android:layout_toEndOf="@+id/textInputEntfernung" />
 
 
     <ImageView
@@ -114,8 +101,9 @@
         design:srcCompat="@android:drawable/ic_menu_camera"
         android:layout_marginTop="28dp"
         android:layout_alignTop="@+id/imageView6"
-        android:layout_toLeftOf="@+id/goToGPS"
-        android:layout_toStartOf="@+id/goToGPS" />
+        android:layout_toEndOf="@+id/textInputMwst"
+        android:layout_toRightOf="@+id/textInputMwst"
+        />
 
 
     <ImageButton
