@@ -25,6 +25,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
     //Common column names
+    public static final String KEY_ID = "ID";
     public static final String KEY_PROJECT = "PROJEKT";
 
     //create project column names
@@ -44,7 +45,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     //CREATE TABLE STATEMENTS
     private static final String CREATE_TABLE_PROJEKT = "create table " + TABLE_PROJEKT +
-            "(PROJEKT TEXT PRIMARY KEY, " +
+            "(ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
+            "PROJEKT VARCHAR2, " +
             "DATE_FROM DATE, " +
             "DATE_TO DATE, " +
             "NACHNAME VARCHAR2, " +
@@ -90,8 +92,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, 1);
-
     }
+
+
 
     @Override
     public void onCreate(SQLiteDatabase db) {
@@ -263,8 +266,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return data;
     }
 
+    public void deleteProject(int id) {
 
-
+        // 1. get reference to writable DB
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("DELETE FROM " + TABLE_PROJEKT + " WHERE ROWID"   + " = '" + id + "';",null);
+        //db.delete(TABLE_PROJEKT, KEY_ID + "=" + "'"+pos+"'", null);
+        db.close();
+    }
 
 
 }

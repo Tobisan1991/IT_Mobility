@@ -1,5 +1,6 @@
 package com.group6.TakeOff;
 
+import android.content.ClipData;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Movie;
@@ -9,8 +10,10 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Toast;
 
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
@@ -49,6 +52,10 @@ public class activity_rechnung extends AppCompatActivity {
             recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
             recyclerView.setAdapter(adapter);
             recyclerView.setLayoutManager((new LinearLayoutManager(this)));
+            ItemTouchHelper.Callback callback = new SwipeHelper(adapter);
+            ItemTouchHelper helper = new ItemTouchHelper(callback);
+            helper.attachToRecyclerView(recyclerView);
+
         }else{
             Toast.makeText(activity_rechnung.this, "Bisher keine Projekte vorhanden", Toast.LENGTH_LONG).show();
         }
@@ -65,6 +72,10 @@ public class activity_rechnung extends AppCompatActivity {
 
             }
         }));
+
+
+
+
 
         bottomNavigationViewEx = (BottomNavigationViewEx) findViewById(R.id.bottomNavigationView);
 

@@ -1,6 +1,7 @@
 package com.group6.TakeOff;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,11 @@ import java.util.List;
  */
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
+
+    Trip trip;
+    DatabaseHelper myDb;
+    int id;
+
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
 
@@ -69,5 +75,19 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public int getItemCount() {
-        return mTrips.size();    }
+        return mTrips.size();
+    }
+
+
+    public void dismissProject(int pos){
+
+        mTrips.remove(pos);
+        this.notifyItemRemoved(pos);
+
+        //pos = pos+1;
+        //id = pos;
+        //myDb.deleteProject(id);
+
+    }
+
 }
