@@ -48,7 +48,7 @@ public class activity_rechnung extends AppCompatActivity {
                 trip.add(i,project);
                 i++;
             }
-            RecyclerViewAdapter adapter = new RecyclerViewAdapter(trip);
+            RecyclerViewAdapter adapter = new RecyclerViewAdapter(this,trip);
             recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
             recyclerView.setAdapter(adapter);
             recyclerView.setLayoutManager((new LinearLayoutManager(this)));

@@ -17,8 +17,9 @@ import java.util.List;
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
 
     Trip trip;
-    DatabaseHelper myDb;
+    Context c;
     int id;
+    //DatabaseHelper myDb;
 
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
@@ -40,7 +41,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     private List<Trip> mTrips;
 
-    public RecyclerViewAdapter(List<Trip> trips) {
+    public RecyclerViewAdapter(Context c, List<Trip> trips) {
+        this.c = c;
         mTrips = trips;
     }
 
@@ -84,9 +86,15 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         mTrips.remove(pos);
         this.notifyItemRemoved(pos);
 
-        //pos = pos+1;
-        //id = pos;
-        //myDb.deleteProject(id);
+        /*pos = pos+1;
+        id = pos;
+        DatabaseHelper myDb = new DatabaseHelper(c);
+        if(myDb.deleteProject(pos)){
+
+        }else{
+
+        }*/
+
 
     }
 

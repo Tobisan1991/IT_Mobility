@@ -266,13 +266,23 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return data;
     }
 
-    public void deleteProject(int id) {
+    public boolean deleteProject(int id) {
 
         // 1. get reference to writable DB
         SQLiteDatabase db = this.getWritableDatabase();
-        db.execSQL("DELETE FROM " + TABLE_PROJEKT + " WHERE ROWID"   + " = '" + id + "';",null);
+        try{
+            int result = db.delete(TABLE_PROJEKT,"ROWID =" + id, null);
+            if(result>0) {
+                return true;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+
+        //db.execSQL("DELETE FROM " + TABLE_PROJEKT + " WHERE ROWID"   + " = '" + id + "';",null);
         //db.delete(TABLE_PROJEKT, KEY_ID + "=" + "'"+pos+"'", null);
-        db.close();
+
     }
 
 
