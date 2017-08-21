@@ -47,7 +47,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     //CREATE TABLE STATEMENTS
     private static final String CREATE_TABLE_PROJEKT = "create table " + TABLE_PROJEKT +
             "(ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
-            "PROJEKT VARCHAR2, " +
+            "PROJEKT VARCHAR2 NOT NULL UNIQUE, " +
             "DATE_FROM DATE, " +
             "DATE_TO DATE, " +
             "NACHNAME VARCHAR2, " +
@@ -271,20 +271,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         // 1. get reference to writable DB
         SQLiteDatabase db = this.getWritableDatabase();
-        try{
-            int result = db.delete(TABLE_PROJEKT,"ROWID =" + id, null);
-            if(result>0) {
-                return true;
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return false;
+        //try{
+        db.execSQL("delete from " + TABLE_PROJEKT + " where " + KEY_PROJECT + " in" +
+                "(select " + KEY_PROJECT + " from (select a." + KEY_ID + ", a." + KEY_PROJECT + ", (select count(*) " + "from " + TABLE_PROJEKT + " b  " +
+                "where a." + KEY_ID + " >= b." + KEY_ID + ") as CNT from " + TABLE_PROJEKT + " a where cnt = " + id + "))  ");
+        db.execSQL("commit;");
+        return true;
+        // int result = db.(TABLE_PROJEKT,"ROWID =" + id, null);
+        //if(result>0) {
+        //         return true;
+        //   }
+        //} catch (Exception e) {
+        //   e.printStackTrace();
+        //}
+        //return false;
 
         //db.execSQL("DELETE FROM " + TABLE_PROJEKT + " WHERE ROWID"   + " = '" + id + "';",null);
         //db.delete(TABLE_PROJEKT, KEY_ID + "=" + "'"+pos+"'", null);
 
+        //  }
+
     }
-
-
 }

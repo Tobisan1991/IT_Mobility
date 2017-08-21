@@ -86,10 +86,13 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         mTrips.remove(pos);
         this.notifyItemRemoved(pos);
 
-        /*pos = pos+1;
+
+      /*
+        pos = pos+1;
         id = pos;
         DatabaseHelper myDb = new DatabaseHelper(c);
-        if(myDb.deleteProject(pos)){
+
+        /*        if(myDb.deleteProject(pos)){
 
         }else{
 

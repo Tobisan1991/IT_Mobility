@@ -29,7 +29,7 @@
                 android:layout_below="@+id/linearLayout"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="51dp"/>
-                //android:text="T   a   k   e  O   f   f"
+                android:text="T   a   k   e  O   f   f"
                 android:textAlignment="center"
                 android:textColor="@android:color/background_light"
                 android:textSize="24sp"
