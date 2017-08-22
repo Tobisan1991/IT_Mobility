@@ -19,5 +19,10 @@
         <item>Bahn</item>
         <item>Taxi</item>
     </string-array>
+    <string-array name="Mwst">
+        <item>€</item>
+        <item>%</item>
+    </string-array>
+
 
 </resources>
