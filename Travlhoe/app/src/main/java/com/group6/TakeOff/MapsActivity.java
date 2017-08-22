@@ -35,6 +35,8 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.io.IOException;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.List;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback,
@@ -53,6 +55,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             public static final int REQUEST_LOCATION_CODE=99;
             double latitude, longtitude;
             double end_latitude, end_longtitude;
+            double df, dg;
             float f, g;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -119,6 +122,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                             Location.distanceBetween(latitude,longtitude,latLng.latitude,latLng.longitude,searchResult);
                             markerOptions.snippet("Distance "+searchResult[0]);
                             g=searchResult[0];
+                            dg=g;
                             mMap.addMarker(markerOptions);
                         }
                     }
@@ -138,17 +142,19 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             Location.distanceBetween(latitude, longtitude,end_latitude,end_longtitude,result);
             markerOptions.snippet("Distance "+result[0]);
             f= result[0];
+            df=f;
             mMap.addMarker(markerOptions);
 
         }
         if(v.getId()==R.id.bReturn){
             if(f!=0) {
-                String s = String.valueOf(f);
+
+                String s = String.valueOf(round(df,2));
                 Intent intentTransport = new Intent(MapsActivity.this, activity_transport.class);
                 intentTransport.putExtra("e1", s);
                 startActivity(intentTransport);
             }else if(g!=0){
-                String s = String.valueOf(g);
+                String s = String.valueOf(round(dg,2));
                 Intent intentTransport = new Intent(MapsActivity.this, activity_transport.class);
                 intentTransport.putExtra("e1", s);
                 startActivity(intentTransport);
@@ -163,6 +169,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
 
     }
+            public static double round(double value, int places) {
+                if (places < 0) throw new IllegalArgumentException();
+
+                BigDecimal bd = new BigDecimal(value);
+                bd = bd.setScale(places, RoundingMode.HALF_UP);
+                return bd.doubleValue();
+            }
 
 
 
