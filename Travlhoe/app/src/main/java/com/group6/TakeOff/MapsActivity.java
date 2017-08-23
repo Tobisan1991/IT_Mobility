@@ -149,12 +149,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         if(v.getId()==R.id.bReturn){
             if(f!=0) {
 
-                String s = String.valueOf(round((df/1000),2));
+                String s = String.valueOf(round(df,2));
                 Intent intentTransport = new Intent(MapsActivity.this, activity_transport.class);
                 intentTransport.putExtra("e1", s);
                 startActivity(intentTransport);
             }else if(g!=0){
-                String s = String.valueOf(round((dg/1000),2));
+                String s = String.valueOf(round(dg,2));
                 Intent intentTransport = new Intent(MapsActivity.this, activity_transport.class);
                 intentTransport.putExtra("e1", s);
                 startActivity(intentTransport);
