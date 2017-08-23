@@ -70,7 +70,7 @@ public class activity_transport extends AppCompatActivity {
         Entfernung = (EditText) findViewById(R.id.Entfernung);
         Intent into = getIntent();
         e1=into.getStringExtra("e1");
-        Entfernung.setText(e1);
+        Entfernung.setText(e1 + " km");
 
         Price = (EditText) findViewById(R.id.Preis);
         MWST = (EditText) findViewById(R.id.MwSt);
