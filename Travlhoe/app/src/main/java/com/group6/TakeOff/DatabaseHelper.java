@@ -64,7 +64,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String CREATE_TABLE_TRANSPORT = "create table " + TABLE_TRANSPORT +
             "(PROJEKT VARCHAR2, " +
             "TRANSPORT VARCHAR2, " +
-            "ENTFERNUNG DOUBLE, " +
+            "ENTFERNUNG VARCHAR2, " +
             "PRICE DOUBLE, " +
             "MWST DOUBLE, "+
             "RECHNUNG_IMG BLOB)";                                                                   //Image
@@ -159,7 +159,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
     //+++++++++++++CREATE A TRANSPORT++++++++++++//
-    public boolean createTransport(String transport, String project, int price, int steuer, int entfernung, byte[] image){  //Image
+    public boolean createTransport(String transport, String project, int price, int steuer, String entfernung, byte[] image){  //Image
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(KEY_TRANSPORT, transport);

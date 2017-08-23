@@ -43,7 +43,7 @@
             android:launchMode="singleTop" />
         <activity
             android:name=".activity_transport"
-            android:label="@string/title_auto"></activity>
+            android:label="@string/title_transport"></activity>
         <activity android:name=".function_gps"></activity>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.

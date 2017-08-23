@@ -242,7 +242,7 @@ public class activity_transport extends AppCompatActivity {
                                 selectedspinner,
                                 Integer.valueOf(Price.getText().toString()),
                                 Integer.valueOf(MWST.getText().toString()),
-                                Integer.valueOf(Entfernung.getText().toString()),
+                                Entfernung.getText().toString(),
                                 imageViewToByte(imageView2)
                         );
                         if(isInserted=true)

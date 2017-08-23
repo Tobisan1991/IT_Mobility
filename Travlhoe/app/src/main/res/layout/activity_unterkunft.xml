@@ -107,16 +107,7 @@
     </android.support.design.widget.TextInputLayout>
 
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hinterlegen Sie hier Ihre Rechnung mit der Kamerfunktion:"
-        android:padding="5dp"
-        android:layout_above="@+id/imageView6"
-        android:layout_marginBottom="10dp"
-        android:textSize="14dp"
-        />
+
 
     <ImageView
         android:id="@+id/imageView6"
