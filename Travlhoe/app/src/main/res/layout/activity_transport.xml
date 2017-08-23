@@ -141,14 +141,24 @@
 
 
 
-
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hinterlegen Sie hier Ihre Rechnung mit der Kamerfunktion:"
+        android:padding="5dp"
+        android:layout_above="@+id/imageView2"
+        android:layout_marginBottom="10dp"
+        android:textSize="14dp"
+        />
 
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:background="@drawable/layout_bg"
-        android:layout_below="@+id/textInputEntfernung"
+        android:layout_marginBottom="29dp"
+        android:layout_above="@+id/btn_save"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
