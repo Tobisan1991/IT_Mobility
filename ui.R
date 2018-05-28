@@ -2,7 +2,7 @@
 library(shinydashboard)
 
 dashboardPage(
-  dashboardHeader(),
+  dashboardHeader(title = "OLAP & DM"),
   dashboardSidebar(),
   dashboardBody()
 )
