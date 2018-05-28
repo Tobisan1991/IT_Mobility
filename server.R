@@ -16,8 +16,7 @@ adventureWorks <- DBI::dbConnect(
 #sales = read_tsv("/Users/philipp/Dropbox/3.Semester/OLAP & DM/Dashboard/Data/Sales.tsv")
 sales = adventureWorks %>% tbl("FactResellerSales") %>% head(100) %>%
   as.data.frame()
-print (test)
 ## server.R ##
 function(input, output, session) {
-  output$salesTable = DT::renderDataTable(test)
+  output$salesTable = DT::renderDataTable(sales)
 }
