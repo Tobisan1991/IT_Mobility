@@ -20,3 +20,4 @@ sales = adventureWorks %>% tbl("FactResellerSales") %>% head(100) %>%
 function(input, output, session) {
   output$salesTable = DT::renderDataTable(sales)
 }
+print("test")
