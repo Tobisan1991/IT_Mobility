@@ -1,8 +1,13 @@
 ## ui.R ##
 library(shinydashboard)
+library(DT)
 
 dashboardPage(
   dashboardHeader(title = "OLAP & DM"),
   dashboardSidebar(),
-  dashboardBody()
+  dashboardBody(
+    fluidRow(
+      DT::dataTableOutput("salesTable")
+    )
+  )
 )
